@@ -1,4 +1,6 @@
 #pragma once
+#include <SDL.h>
+#include <glad/glad.h>
 #include "Math/Vector2.h"
 #include "Math/Color.h"
 #include "Math/Matrix3x3.h"
@@ -55,5 +57,7 @@ namespace neu
 
 		SDL_Renderer* m_renderer = nullptr;
 		SDL_Window* m_window = nullptr;
+
+		SDL_GLContext m_context;
 	};
 }
