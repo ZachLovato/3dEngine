@@ -2,13 +2,13 @@
 #include <iostream>
 
 float points[] = {
-   -0.5f, -0.5f,  0.0f, // triangle 1
-   0.5f, 0.5f,  0.0f,
-   0.5f, -0.5f,  0.0f,
+   -1.0f, -1.0f,  0.0f, // triangle 1
+   1.0f, 1.0f,  0.0f,
+   1.0f, -1.0f,  0.0f,
 
-   -0.5f, -0.5f,  0.0f, // triangle 2
-   -0.5f, 0.5f,  0.0f,
-   0.5f, 0.5f,  0.0f
+   -1.0f, -1.0f,  0.0f, // triangle 2
+   -1.5f, 1.0f,  0.0f,
+   1.5f, 1.0f,  0.0f
 };
 
 glm::vec3 colors[] =
@@ -22,16 +22,31 @@ glm::vec3 colors[] =
 	{ 1, 0.59, 1 }
 };
 
+glm::vec2 texcoords[]
+{
+	{0 , 0},
+	{1 , 1},
+	{1 , 0},
+
+	{0 , 0},
+	{0 , 1},
+	{1 , 1}
+};
+
+
 int main(int argc, char** argv)
 {
+	LOG("App Started...");
 	neu::InitializeMemory();
 
 	neu::SetFilePath("../assets");
 
 	neu::Engine::Instance().Initialize();
 	neu::Engine::Instance().Register();
+	LOG("Engine Started...");
 
 	neu::g_renderer.CreateWindow("Bork", 800, 600);
+	LOG("Window Started...");
 	
 	// create vertex buffer
 	GLuint pvbo = 0;
@@ -43,6 +58,11 @@ int main(int argc, char** argv)
 	glGenBuffers(1, &cvbo);
 	glBindBuffer(GL_ARRAY_BUFFER, cvbo);
 	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(glm::vec3), colors, GL_STATIC_DRAW);
+
+	GLuint tvbo = 0;
+	glGenBuffers(1, &tvbo);
+	glBindBuffer(GL_ARRAY_BUFFER, tvbo);
+	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(glm::vec2), texcoords, GL_STATIC_DRAW);
 
 	// create vertex array
 	GLuint vao = 0;
@@ -57,9 +77,14 @@ int main(int argc, char** argv)
 	glBindBuffer(GL_ARRAY_BUFFER, cvbo);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
+	glEnableVertexAttribArray(2);
+	glBindBuffer(GL_ARRAY_BUFFER, tvbo);
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+
 	// create shader
 	std::shared_ptr<neu::Shader> vs = neu::g_resources.Get<neu::Shader>("shaders/basic.vert", GL_VERTEX_SHADER);
 	std::shared_ptr<neu::Shader> fs = neu::g_resources.Get<neu::Shader>("shaders/basic.frag", GL_FRAGMENT_SHADER);
+	std::shared_ptr<neu::Shader> ts = neu::g_resources.Get<neu::Shader>("shaders/basic.frag", GL_FRAGMENT_SHADER);
 
 	// create program
 	GLuint program = glCreateProgram();
