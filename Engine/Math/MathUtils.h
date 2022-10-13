@@ -1,5 +1,17 @@
 #pragma once
 #include <cmath>
+#include <glm.hpp>
+#include <gtx/compatibility.hpp>
+#include <gtx/norm.hpp>
+#include <vec2.hpp>
+#include <vec3.hpp>
+#include <vec4.hpp>
+#include <gtc/matrix_transform.hpp>
+#include <gtx/transform.hpp>
+#include <gtx/color_space.hpp>
+#include <gtc/type_ptr.hpp>
+#include <gtx/euler_angles.hpp>
+#include <gtc/quaternion.hpp>
 
 namespace math
 {
