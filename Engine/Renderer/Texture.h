@@ -1,6 +1,7 @@
 #pragma once
 #include "Math/Vector2.h"
 #include "Resource/Resource.h"
+#include "Renderer.h"
 #include <string>
 
 struct SDL_Texture;
@@ -22,12 +23,19 @@ namespace neu
 		bool CreateFromSurface(SDL_Surface* surface, Renderer& renderer);
 
 		bool Load(const std::string& filename, Renderer& renderer);
+		void Bind() { glBindTexture(m_target, m_texture); }
 
 		Vector2 GetSize() const;
 
 		friend class Renderer;
 
 	private:
-		SDL_Texture* m_texture = nullptr;
+		void FlipSurface(SDL_Surface* surface);
+
+		GLuint m_texture = 0;
+		GLuint m_uint = GL_TEXTURE0;
+		GLenum m_target = GL_TEXTURE_2D;
+
+		//SDL_Texture* m_texture = nullptr;
 	};
 }

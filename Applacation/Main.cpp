@@ -2,35 +2,36 @@
 #include <iostream>
 
 float points[] = {
-   -1.0f, -1.0f,  0.0f, // triangle 1
-   1.0f, 1.0f,  0.0f,
-   1.0f, -1.0f,  0.0f,
-
+   1.0f, 1.0f,  0.0f, // triangle 1
+   -1.0f, 1.0f,  0.0f,
+   -1.0f, -1.0f,  0.0f,
    -1.0f, -1.0f,  0.0f, // triangle 2
-   -1.5f, 1.0f,  0.0f,
-   1.5f, 1.0f,  0.0f
+   1.0f, -1.0f,  0.0f,
+   1.0f, 1.0f,  0.0f
+
+
 };
 
 glm::vec3 colors[] =
 { // rgb
-	{ 1, 0.5, 1 },
-	{ 0.25, 1, 1 },
-	{ 1, 0, 1 },
+	{ 0, 0, 0 },
+	{ 0, 0, 0 },
+	{ 0, 0, 0 },
 
-	{ 1, 0.84, 0 },
-	{ 0, 0.11, 1 },
-	{ 1, 0.59, 1 }
+	{ 0, 0, 0 },
+	{ 0, 0, 0 },
+	{ 0, 0, 0 }
 };
 
 glm::vec2 texcoords[]
 {
-	{0 , 0},
-	{1 , 1},
-	{1 , 0},
-
-	{0 , 0},
-	{0 , 1},
-	{1 , 1}
+	{ 0 , 0 },
+	{ 1 , 0 },
+	{ 1 , 1 },
+	
+	{ 1 , 1 },
+	{ 0 , 1 },
+	{ 0 , 0 }
 };
 
 
@@ -81,23 +82,22 @@ int main(int argc, char** argv)
 	glBindBuffer(GL_ARRAY_BUFFER, tvbo);
 	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
+
+	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/box.mtrl");
+	material->Link();
+	material->Bind();
+
 	// create shader
-	std::shared_ptr<neu::Shader> vs = neu::g_resources.Get<neu::Shader>("shaders/basic.vert", GL_VERTEX_SHADER);
-	std::shared_ptr<neu::Shader> fs = neu::g_resources.Get<neu::Shader>("shaders/basic.frag", GL_FRAGMENT_SHADER);
-	std::shared_ptr<neu::Shader> ts = neu::g_resources.Get<neu::Shader>("shaders/basic.frag", GL_FRAGMENT_SHADER);
+	//std::shared_ptr<neu::Program> pog = neu::g_resources.Get<neu::Program>("shaders/basic.prog");
+	//pog->Link();
+	//pog->Use();
 
-	// create program
-	GLuint program = glCreateProgram();
-	glAttachShader(program, vs->m_shader);
-	glAttachShader(program, fs->m_shader);
-	glLinkProgram(program);
-	glUseProgram(program);
+	//Create Texture
+	//std::shared_ptr<neu::Texture> texture1 = neu::g_resources.Get<neu::Texture>("texture/wood.png");
+	//std::shared_ptr<neu::Texture> texture2 = neu::g_resources.Get<neu::Texture>("texture/llama.jpg");
+	//std::shared_ptr<neu::Texture> texture3 = neu::g_resources.Get<neu::Texture>("texture/create.png");
+	//texture1->Bind();
 
-	GLint uniform1 = glGetUniformLocation(program, "scale");
-	GLint uniform2 = glGetUniformLocation(program, "tint");
-	GLint uniform3 = glGetUniformLocation(program, "transform");
-
-	glUniform3f(uniform3, 1,0,0);
 
 	glm::mat4 mx { 1 };
 	//mx = glm::scale(glm::vec3{ 0.5, 0.5 ,0.5});
@@ -109,13 +109,11 @@ int main(int argc, char** argv)
 
 		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
 
-		//glUniform1f(uniform1, 1);
-		glUniform1f(uniform1, 1);
-		//glUniform3f(uniform2, std::sin(neu::g_time.time), std::sin(neu::g_time.time), std::sin(neu::g_time.time));
-		glUniform3f(uniform2, 1, 1, 1);
-	
-		mx = glm::eulerAngleXYX(neu::randomf(), neu::g_time.deltaTime, neu::g_time.time);
-		glUniformMatrix4fv(uniform3, 1, GL_FALSE, glm::value_ptr(mx));
+		mx = glm::eulerAngleXYX(0, 0, 0);
+		material->GetProgram()->SetUniform("tint", glm::vec3{ 1, 0, 0 });
+		material->GetProgram()->SetUniform("scale", 1.0f);
+		//material->GetProgram()->SetUniform("scale", std::sin(neu::g_time.time * 3));
+		material->GetProgram()->SetUniform("transform", mx);
 
 		neu::g_renderer.BeginFrame();
 
@@ -125,7 +123,6 @@ int main(int argc, char** argv)
 
 		neu::g_renderer.EndFrame();
 	}
-
 
 	neu::Engine::Instance().Shutdown();
 	return 0;
