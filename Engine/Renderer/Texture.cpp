@@ -9,7 +9,6 @@ namespace neu
 {
     Texture::~Texture()
     {
-        // !! if texture not null SDL_DestroyTexture
         if (m_texture) glDeleteTextures(1, &m_texture);
     }
 
@@ -39,7 +38,7 @@ namespace neu
     bool Texture::Load(const std::string& filename, Renderer& renderer)
     {
         // load surface 
-       // !! call IMG_Load with c-string of filename 
+        // !! call IMG_Load with c-string of filename 
         SDL_Surface* surface = IMG_Load(filename.c_str());
         if (surface == nullptr)
         {
@@ -52,8 +51,8 @@ namespace neu
         glGenTextures(1, &m_texture);
         glBindTexture(m_target, m_texture);
 
-        GLenum format = (surface->format -> BytesPerPixel == 4) ? GL_RGBA : GL_RGB;
-        glTexImage2D(m_target, 0, format, surface->w, surface -> h, 0, format, GL_UNSIGNED_BYTE, surface->pixels);
+        GLenum format = (surface->format->BytesPerPixel == 4) ? GL_RGBA : GL_RGB;
+        glTexImage2D(m_target, 0, format, surface->w, surface->h, 0, format, GL_UNSIGNED_BYTE, surface->pixels);
 
         glTexParameteri(m_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(m_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -96,4 +95,3 @@ namespace neu
         SDL_UnlockSurface(surface);
     }
 }
-

@@ -1,6 +1,6 @@
 {
   "program": "shaders/basic.prog",
-  "texture": "texture/llama.jpg",
+  "texture": "texture/gbB2.png",
   "ambient": [
     1,
     1,

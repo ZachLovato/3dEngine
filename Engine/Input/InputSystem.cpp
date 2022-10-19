@@ -15,6 +15,8 @@ namespace neu
 	const uint32_t key_down = SDL_SCANCODE_DOWN;
 	const uint32_t key_left = SDL_SCANCODE_LEFT;
 	const uint32_t key_right = SDL_SCANCODE_RIGHT;
+	const uint32_t key_w = SDL_SCANCODE_W;
+	const uint32_t key_s = SDL_SCANCODE_S;
 
 	void InputSystem::Initialize()
 	{
