@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 
-namespace neu
+namespace wrap
 {
 	class Renderer;
 	class Scene;

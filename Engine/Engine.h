@@ -43,13 +43,14 @@
 #include "Renderer/Shader.h"
 #include "Renderer/Program.h"
 #include "Renderer/Material.h"
+#include "Renderer/VertexBuffer.h"
 
 #include <memory>
 #include <vector>
 #include <list>
 #include <variant>
 
-namespace neu
+namespace wrap
 {
 	extern Renderer g_renderer;
 	extern InputSystem g_inputSystem;

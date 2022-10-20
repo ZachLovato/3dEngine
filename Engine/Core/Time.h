@@ -1,7 +1,7 @@
 #pragma once
 #include <chrono>
 
-namespace neu
+namespace wrap
 {
 	class Time
 	{

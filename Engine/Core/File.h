@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-namespace neu
+namespace wrap
 {
 	void SetFilePath(const std::string& pathname);
 	std::string GetFilePath();

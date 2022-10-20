@@ -1,7 +1,7 @@
 #include "Program.h" 
 #include "Engine.h" 
 
-namespace neu
+namespace wrap
 {
     Program::~Program()
     {
@@ -15,7 +15,7 @@ namespace neu
     {
         // load program json document
         rapidjson::Document document;
-        bool success = neu::json::Load(filename, document);
+        bool success = wrap::json::Load(filename, document);
         if (!success)
         {
             LOG("Could not load program file (%s).", filename.c_str());
@@ -30,7 +30,7 @@ namespace neu
         READ_DATA(document, vertex_shader);
         if (!vertex_shader.empty())
         {
-            auto vshader = g_resources.Get<neu::Shader>(vertex_shader, GL_VERTEX_SHADER);
+            auto vshader = g_resources.Get<wrap::Shader>(vertex_shader, GL_VERTEX_SHADER);
             AddShader(vshader);
         }
 
@@ -39,7 +39,7 @@ namespace neu
         READ_DATA(document, fragment_shader);
         if (!fragment_shader.empty())
         {
-            auto fshader = g_resources.Get<neu::Shader>(fragment_shader, (void*)GL_FRAGMENT_SHADER);
+            auto fshader = g_resources.Get<wrap::Shader>(fragment_shader, (void*)GL_FRAGMENT_SHADER);
             AddShader(fshader);
         }
 

@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath>
 
-namespace neu
+namespace wrap
 {
 	struct Vector3
 	{

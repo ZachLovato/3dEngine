@@ -1,6 +1,6 @@
 #include "Matrix2x2.h"
 
-namespace neu
+namespace wrap
 {
 	// 1 0
 	// 0 1

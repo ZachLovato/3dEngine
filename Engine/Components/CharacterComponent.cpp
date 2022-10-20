@@ -1,7 +1,7 @@
 #include "CharacterComponent.h"
 #include "Engine.h"
 
-namespace neu
+namespace wrap
 {
 	CharacterComponent::~CharacterComponent()
 	{

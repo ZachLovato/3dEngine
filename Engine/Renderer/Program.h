@@ -5,7 +5,7 @@
 #include <map> 
 #include <vector> 
 
-namespace neu
+namespace wrap
 {
 	class Shader;
 

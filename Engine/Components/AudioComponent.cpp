@@ -2,7 +2,7 @@
 #include "Engine.h"
 
 
-namespace neu
+namespace wrap
 {
 	AudioComponent::~AudioComponent()
 	{

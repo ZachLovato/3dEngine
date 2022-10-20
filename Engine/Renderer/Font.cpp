@@ -2,7 +2,7 @@
 #include "Core/Logger.h"
 #include <SDL_ttf.h>
 
-namespace neu
+namespace wrap
 {
 	Font::Font(const std::string& filename, int fontSize)
 	{

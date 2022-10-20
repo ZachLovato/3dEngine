@@ -1,11 +1,11 @@
 #include "Transform.h"
 
-bool neu::Transform::Write(const rapidjson::Value& value) const
+bool wrap::Transform::Write(const rapidjson::Value& value) const
 {
     return true;
 }
 
-bool neu::Transform::Read(const rapidjson::Value& value)
+bool wrap::Transform::Read(const rapidjson::Value& value)
 {
     READ_DATA(value, position);
     READ_DATA(value, scale);

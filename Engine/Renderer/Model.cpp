@@ -7,7 +7,7 @@
 #include <iostream>
 #include <sstream>
 
-namespace neu
+namespace wrap
 {
 	Model::Model(const std::string& filename)
 	{
@@ -31,8 +31,8 @@ namespace neu
 		// draw model points
 		for (size_t i = 0; i < m_points.size() - 1; i++)
 		{
-			neu::Vector2 p1 = Vector2::Rotate((m_points[i] * scale), angle) + position;
-			neu::Vector2 p2 = Vector2::Rotate((m_points[i + 1] * scale), angle) + position;
+			wrap::Vector2 p1 = Vector2::Rotate((m_points[i] * scale), angle) + position;
+			wrap::Vector2 p2 = Vector2::Rotate((m_points[i + 1] * scale), angle) + position;
 
 			renderer.DrawLine(p1, p2, m_color);
 		}
@@ -40,15 +40,15 @@ namespace neu
 
 	void Model::Draw(Renderer& renderer, const Transform& transform)
 	{
-		Matrix3x3 mx = transform.matrix;
+		//Matrix3x3 mx = transform.matrix;
 		//if (m_points.size() == 0) return;
 
 		for (size_t i = 0; i < m_points.size() - 1; i++)
 		{
-			neu::Vector2 p1 = mx * m_points[i];
-			neu::Vector2 p2 = mx * m_points[i + 1];
+			//wrap::Vector2 p1 = mx * m_points[i];
+			//wrap::Vector2 p2 = mx * m_points[i + 1];
 
-			renderer.DrawLine(p1, p2, m_color);
+			//renderer.DrawLine(p1, p2, m_color);
 		}
 	}
 
@@ -57,7 +57,7 @@ namespace neu
 	{
 		std::string buffer;
 
-		if (!neu::ReadFile(filename, buffer))
+		if (!wrap::ReadFile(filename, buffer))
 		{
 			LOG("Error could not load model %s", filename.c_str());
 			return false;

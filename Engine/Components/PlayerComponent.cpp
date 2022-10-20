@@ -2,7 +2,7 @@
 #include "Engine.h"
 #include <iostream>
 
-namespace neu
+namespace wrap
 {
 	void PlayerComponent::Initialize()
 	{

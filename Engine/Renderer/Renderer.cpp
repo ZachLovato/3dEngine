@@ -8,7 +8,7 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 
-namespace neu
+namespace wrap
 {
 	void Renderer::Initialize()
 	{
@@ -110,6 +110,7 @@ namespace neu
 
 	void Renderer::Draw(std::shared_ptr<Texture> texture, const Transform& transform, const Vector2& registration)
 	{
+		/*
 		Vector2 size = texture->GetSize();
 		size = size * transform.scale;
 
@@ -123,12 +124,14 @@ namespace neu
 		dest.h = (int)(size.y);
 
 		SDL_Point center{ (int)origin.x, (int)origin.y };
+		*/
 
 		//SDL_RenderCopyEx(m_renderer, texture->m_texture, nullptr, &dest, transform.rotation, &center, SDL_FLIP_NONE);
 	}
 
 	void Renderer::Draw(std::shared_ptr<Texture> texture, const Rect& source, const Transform& transform, const Vector2& registration, bool flipH)
 	{
+		/*
 		Matrix3x3 mx = m_viewport * m_view * transform.matrix;
 
 		Vector2 size = Vector2{ source.w, source.h };
@@ -153,6 +156,7 @@ namespace neu
 
 		SDL_RendererFlip flip = (flipH) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
 		//SDL_RenderCopyEx(m_renderer, texture->m_texture, &src, &dest, math::RadToDeg(mx.GetRotation()), &center, flip);
+		*/
 	}
 
 }

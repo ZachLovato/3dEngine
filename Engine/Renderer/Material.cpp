@@ -1,13 +1,13 @@
 #include "Material.h" 
 #include "Engine.h" 
 
-namespace neu
+namespace wrap
 {
 	bool Material::Create(std::string filename, ...)
 	{
 		// load program json document 
 		rapidjson::Document document;
-		bool success = neu::json::Load(filename, document);
+		bool success = wrap::json::Load(filename, document);
 		if (!success)
 		{
 
@@ -19,7 +19,7 @@ namespace neu
 		std::string program;
 		READ_DATA(document, program);
 		// get program resource 
-		m_program = neu::g_resources.Get<neu::Program>(program);
+		m_program = wrap::g_resources.Get<wrap::Program>(program);
 
 		// read the texture name 
 		std::string texture;
@@ -28,7 +28,7 @@ namespace neu
 		{
 			// get texture resource 
 
-			m_textures.push_back(neu::g_resources.Get<neu::Texture>(texture));
+			m_textures.push_back(wrap::g_resources.Get<wrap::Texture>(texture));
 		}
 
 		// read colors 

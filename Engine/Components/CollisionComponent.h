@@ -4,7 +4,7 @@
 #include "Physics/PhysicsSystem.h"
 #include <functional>
 
-namespace neu
+namespace wrap
 {
 	class CollisionComponent : public Component, public ICollision
 	{

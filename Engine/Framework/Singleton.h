@@ -1,6 +1,6 @@
 #pragma once
 
-namespace neu
+namespace wrap
 {
 	template<class T>
 	class Singleton

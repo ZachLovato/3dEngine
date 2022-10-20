@@ -3,7 +3,7 @@
 #include <sstream>
 #include <string>
 
-namespace neu
+namespace wrap
 {
 	struct Vector2
 	{

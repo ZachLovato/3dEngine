@@ -9,7 +9,7 @@ namespace FMOD
 	class Sound;
 }
 
-namespace neu
+namespace wrap
 {
 	class AudioSystem
 	{

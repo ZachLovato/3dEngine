@@ -1,6 +1,6 @@
 #include "ResourceManager.h"
 
-namespace neu
+namespace wrap
 {
 	void ResourceManager::Initialize()
 	{

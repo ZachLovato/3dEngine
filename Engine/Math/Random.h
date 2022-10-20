@@ -1,7 +1,7 @@
 #pragma once
 #include <random>
 
-namespace neu
+namespace wrap
 {
 	inline void seedRandom(int seed) { srand(seed); }
 

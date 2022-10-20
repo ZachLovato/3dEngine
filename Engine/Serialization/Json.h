@@ -5,9 +5,9 @@
 #include <vector>
 
 
-#define READ_DATA(value, data) neu::json::Get(value, #data, data)
+#define READ_DATA(value, data) wrap::json::Get(value, #data, data)
 
-namespace neu
+namespace wrap
 {
 	struct Vector2;
 	struct Color;

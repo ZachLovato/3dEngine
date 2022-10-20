@@ -3,7 +3,7 @@
 #include "Components/CollisionComponent.h"
 #include <iostream>
 
-namespace neu
+namespace wrap
 {
 	void ContactListener::BeginContact(b2Contact* contact)
 	{

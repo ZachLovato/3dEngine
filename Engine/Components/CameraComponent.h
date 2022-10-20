@@ -2,7 +2,7 @@
 #include "Framework/Component.h"
 #include "Math/Matrix3x3.h"
 
-namespace neu
+namespace wrap
 {
 	class CameraComponent : public Component
 	{

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <windows.h>
 
-namespace neu
+namespace wrap
 {
 	Logger g_logger;
 

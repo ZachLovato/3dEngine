@@ -8,7 +8,7 @@
 struct SDL_Renderer;
 struct SDL_Window;
 
-namespace neu
+namespace wrap
 {
 	class Texture;
 	struct Transform;

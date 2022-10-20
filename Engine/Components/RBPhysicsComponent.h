@@ -2,7 +2,7 @@
 #include "PhysicsComponent.h"
 #include "Physics/PhysicsSystem.h"
 
-namespace neu
+namespace wrap
 {
 	class RBPhysicsComponent : public PhysicsComponent
 	{

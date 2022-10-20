@@ -2,7 +2,7 @@
 #include "Resource/Resource.h"
 #include "Renderer.h"
 
-namespace neu
+namespace wrap
 {
 	class Shader : public Resource
 	{

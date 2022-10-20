@@ -1,6 +1,6 @@
 #include "Time.h"
 
-namespace neu
+namespace wrap
 {
 	void Time::Tick()
 	{

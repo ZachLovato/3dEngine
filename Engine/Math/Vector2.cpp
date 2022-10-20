@@ -1,6 +1,6 @@
 #include "Vector2.h"
 
-namespace neu
+namespace wrap
 {
 	const Vector2 Vector2::one{ 1, 1 };
 	const Vector2 Vector2::zero{ 0, 0 };

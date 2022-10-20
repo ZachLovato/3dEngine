@@ -3,7 +3,7 @@
 #include <variant>
 #include <functional>
 
-namespace neu
+namespace wrap
 {
 	class GameObject;
 

@@ -1,7 +1,7 @@
 #include "TextComponent.h"
 #include "Engine.h"
 
-namespace neu
+namespace wrap
 {
 	void TextComponent::Update()
 	{

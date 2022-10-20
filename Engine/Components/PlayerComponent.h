@@ -3,7 +3,7 @@
 #include "Physics/Collision.h"
 #include "CharacterComponent.h"
 
-namespace neu
+namespace wrap
 {
 	class PlayerComponent : public CharacterComponent
 	{

@@ -1,6 +1,6 @@
 #include "Engine.h"
 
-namespace neu
+namespace wrap
 {
 	Renderer g_renderer;
 	InputSystem g_inputSystem;

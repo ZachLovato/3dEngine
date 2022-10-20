@@ -5,7 +5,7 @@
 #include <SDL_image.h>
 #include <cstdarg>
 
-namespace neu
+namespace wrap
 {
     Texture::~Texture()
     {
@@ -66,7 +66,7 @@ namespace neu
         return true;
     }
 
-    neu::Vector2 Texture::GetSize() const
+    wrap::Vector2 Texture::GetSize() const
     {
         return Vector2{ 0, 0 };
     }

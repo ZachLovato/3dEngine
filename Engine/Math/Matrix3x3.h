@@ -3,7 +3,7 @@
 #include "Vector3.h"
 
 
-namespace neu
+namespace wrap
 {
 	struct Matrix3x3
 	{

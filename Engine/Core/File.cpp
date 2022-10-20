@@ -3,7 +3,7 @@
 #include <filesystem>
 #include <fstream>
 
-namespace neu
+namespace wrap
 {
 	void SetFilePath(const std::string& pathname)
 	{

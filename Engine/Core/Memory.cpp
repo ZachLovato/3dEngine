@@ -1,6 +1,6 @@
 #include "Memory.h"
 
-namespace neu
+namespace wrap
 {
 	void InitializeMemory()
 	{

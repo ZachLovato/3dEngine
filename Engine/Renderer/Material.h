@@ -4,7 +4,7 @@
 #include <vector> 
 #include <memory> 
 
-namespace neu
+namespace wrap
 {
 	class Texture;
 	class Program;

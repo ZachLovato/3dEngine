@@ -3,7 +3,7 @@
 #include "Components/RenderComponent.h"
 #include "Engine.h"
 
-namespace neu
+namespace wrap
 {
 	Actor::Actor(const Actor& other)
 	{

@@ -4,7 +4,7 @@
 #include "Math/Vector2.h"
 #include <vector>
 
-namespace neu
+namespace wrap
 {
 	class TilemapComponent : public Component
 	{

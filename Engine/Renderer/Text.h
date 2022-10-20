@@ -4,7 +4,7 @@
 
 struct SDL_Texture;
 
-namespace neu
+namespace wrap
 {
 	class Font;
 	class Renderer;

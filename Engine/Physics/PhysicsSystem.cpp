@@ -1,7 +1,7 @@
 #include "PhysicsSystem.h"
 #include "Math/MathUtils.h"
 
-namespace neu
+namespace wrap
 {
 	const float PhysicsSystem::pixelsPerUnit = 48.0f;
 

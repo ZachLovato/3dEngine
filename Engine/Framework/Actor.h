@@ -5,7 +5,7 @@
 
 #include <vector>
 
-namespace neu
+namespace wrap
 {
 	class Scene;
 	class Renderer;

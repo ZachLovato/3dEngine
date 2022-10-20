@@ -49,15 +49,15 @@ float vertices[] = {
 int main(int argc, char** argv)
 {
 	LOG("App Started...");
-	neu::InitializeMemory();
+	wrap::InitializeMemory();
 
-	neu::SetFilePath("../assets");
+	wrap::SetFilePath("../assets");
 
-	neu::Engine::Instance().Initialize();
-	neu::Engine::Instance().Register();
+	wrap::Engine::Instance().Initialize();
+	wrap::Engine::Instance().Register();
 	LOG("Engine Started...");
 
-	neu::g_renderer.CreateWindow("Bork", 800, 600);
+	wrap::g_renderer.CreateWindow("Bork", 800, 600);
 	LOG("Window Started...");
 	
 	// create vertex buffer
@@ -82,8 +82,14 @@ int main(int argc, char** argv)
 	glEnableVertexAttribArray(2);
 	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 
-
-	std::shared_ptr<neu::Material> material = neu::g_resources.Get<neu::Material>("materials/box.mtrl");
+	std::shared_ptr<wrap::VertexBuffer> vb = wrap::g_resources.Get<wrap::VertexBuffer>("box");
+	vb->CreateVertexBuffer(sizeof(vertices), 36, vertices);
+	vb->SetAttribute(0, 3, 8 * sizeof(float), 0);
+	vb->SetAttribute(1, 3, 8 * sizeof(float), 3 * sizeof(float));
+	vb->SetAttribute(2, 3, 8 * sizeof(float), 6 * sizeof(float));
+ 
+	//creat emateral
+	std::shared_ptr<wrap::Material> material = wrap::g_resources.Get<wrap::Material>("materials/box.mtrl");
 	material->Link();
 	material->Bind();
 
@@ -91,7 +97,7 @@ int main(int argc, char** argv)
 	material->GetProgram()->SetUniform("scale", 1.0f);
 
 	glm::mat4 model { 1 };
-	glm::mat4 projection = glm::perspective(45.0f, neu::g_renderer.GetWidth() / (float)neu::g_renderer.GetHeight(), 0.01f, 100.0f);
+	glm::mat4 projection = glm::perspective(45.0f, wrap::g_renderer.GetWidth() / (float)wrap::g_renderer.GetHeight(), 0.01f, 100.0f);
 
 	glm::vec3 cameraPosition{ 0, 0, 2 };
 	float speed = 3;
@@ -99,51 +105,51 @@ int main(int argc, char** argv)
 	bool quit = false;
 	while (!quit)
 	{
-		neu::Engine::Instance().Update();
+		wrap::Engine::Instance().Update();
 
-		if (neu::g_inputSystem.GetKeyState(neu::key_escape) == neu::InputSystem::KeyState::Pressed) quit = true;
+		if (wrap::g_inputSystem.GetKeyState(wrap::key_escape) == wrap::InputSystem::KeyState::Pressed) quit = true;
 		//add input to camera
-		if (neu::g_inputSystem.GetKeyState(neu::key_left) == neu::InputSystem::KeyState::Held)
+		if (wrap::g_inputSystem.GetKeyState(wrap::key_left) == wrap::InputSystem::KeyState::Held)
 		{
-			cameraPosition.x -= speed * neu::g_time.deltaTime; // move left
+			cameraPosition.x -= speed * wrap::g_time.deltaTime; // move left
 		}
-		if (neu::g_inputSystem.GetKeyState(neu::key_right) == neu::InputSystem::KeyState::Held)
+		if (wrap::g_inputSystem.GetKeyState(wrap::key_right) == wrap::InputSystem::KeyState::Held)
 		{
-			cameraPosition.x += speed * neu::g_time.deltaTime; // move right
+			cameraPosition.x += speed * wrap::g_time.deltaTime; // move right
 		}
-		if (neu::g_inputSystem.GetKeyState(neu::key_up) == neu::InputSystem::KeyState::Held)
+		if (wrap::g_inputSystem.GetKeyState(wrap::key_up) == wrap::InputSystem::KeyState::Held)
 		{
-			cameraPosition.y += speed * neu::g_time.deltaTime; // move up
+			cameraPosition.y += speed * wrap::g_time.deltaTime; // move up
 		}
-		if (neu::g_inputSystem.GetKeyState(neu::key_down) == neu::InputSystem::KeyState::Held)
+		if (wrap::g_inputSystem.GetKeyState(wrap::key_down) == wrap::InputSystem::KeyState::Held)
 		{
-			cameraPosition.y -= speed * neu::g_time.deltaTime; // move down
+			cameraPosition.y -= speed * wrap::g_time.deltaTime; // move down
 		}
-		if (neu::g_inputSystem.GetKeyState(neu::key_w) == neu::InputSystem::KeyState::Held)
+		if (wrap::g_inputSystem.GetKeyState(wrap::key_w) == wrap::InputSystem::KeyState::Held)
 		{
-			cameraPosition.z -= speed * neu::g_time.deltaTime; // zoom in
+			cameraPosition.z -= speed * wrap::g_time.deltaTime; // zoom in
 		}
-		if (neu::g_inputSystem.GetKeyState(neu::key_s) == neu::InputSystem::KeyState::Held)
+		if (wrap::g_inputSystem.GetKeyState(wrap::key_s) == wrap::InputSystem::KeyState::Held)
 		{
-			cameraPosition.z += speed * neu::g_time.deltaTime; // zoom out
+			cameraPosition.z += speed * wrap::g_time.deltaTime; // zoom out
 		}
 
-		//model = glm::eulerAngleXYX(0.0f, neu::g_time.time * 2, std::sin(neu::g_time.time));
+		//model = glm::eulerAngleXYX(0.0f, wrap::g_time.time * 2, std::sin(wrap::g_time.time));
 		
 		//glm::mat4 view = glm::lookAt(cameraPosition, glm::vec3{ 0, 0, 0 }, glm::vec3{ 0, 1, 0 });
 		glm::mat4 view = glm::lookAt(cameraPosition, cameraPosition + glm::vec3{ 0, 0, -1 }, glm::vec3{ 0, 1, 0 });
 		glm::mat4 mvp = projection * view * model;
 
-		//material->GetProgram()->SetUniform("scale", std::sin(neu::g_time.time));
+		//material->GetProgram()->SetUniform("scale", std::sin(wrap::g_time.time));
 		material->GetProgram()->SetUniform("mvp", mvp);
 
-		neu::g_renderer.BeginFrame();
+		wrap::g_renderer.BeginFrame();
 
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		vb->Draw();
 
-		neu::g_renderer.EndFrame();
+		wrap::g_renderer.EndFrame();
 	}
 
-	neu::Engine::Instance().Shutdown();
+	wrap::Engine::Instance().Shutdown();
 	return 0;
 }

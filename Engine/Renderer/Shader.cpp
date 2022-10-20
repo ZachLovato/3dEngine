@@ -2,7 +2,7 @@
 #include "Core/File.h"
 #include "Core/Logger.h"
 
-namespace neu
+namespace wrap
 {
 	Shader::~Shader()
 	{
