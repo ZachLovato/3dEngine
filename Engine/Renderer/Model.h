@@ -4,12 +4,35 @@
 #include <vector>
 #include <string>
 
+#include "VertexBuffer.h" 
+#include "Math/MathUtils.h" 
+
+#include <assimp/Importer.hpp> 
+#include <assimp/scene.h> 
+#include <assimp/postprocess.h> 
+
 namespace wrap
 {
 	class Model : public Resource
 	{
 	public:
-		Model() = default;
+		struct vertex_t
+		{
+			glm::vec3 position;
+			glm::vec2 texcoord;
+		};
+
+	public:
+		bool Create(std::string filename, ...) override;
+
+	private:
+		void ProcessNode(aiNode* node, const aiScene* scene);
+		void ProcessMesh(aiMesh* mesh, const aiScene* scene);
+
+	public:
+		VertexBuffer m_vertexBuffer;
+
+		/*Model() = default;
 		Model(const std::vector<wrap::Vector2>& points, const wrap::Color& color) :
 			m_points{ points },
 			m_color{ color }
@@ -25,7 +48,7 @@ namespace wrap
 		bool Load(const std::string& filename);
 		float CalculateRadius();
 
-		float GetRadius() { return m_radius; }
+		float GetRadius() { return m_radius; }*/
 
 	private:
 		wrap::Color m_color{ 0, 0, 0, 0 };

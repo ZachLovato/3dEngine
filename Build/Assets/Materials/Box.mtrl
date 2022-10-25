@@ -1,7 +1,8 @@
 {
   "program": "shaders/basic.prog",
-  "texture": "texture/gbB2.png",
+  "texture": "Texture/spot.png",
   "ambient": [
+
     1,
     1,
     1
