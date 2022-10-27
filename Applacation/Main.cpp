@@ -3,7 +3,6 @@
 #include <Renderer/Program.h>
 #include <Renderer/Material.h>
 
-//new thing
 float vertices[] = {
 	-0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
 	 0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
@@ -63,42 +62,32 @@ int main(int argc, char** argv)
 
 
 	// load scene 
-	auto scene = std::make_unique<wrap::Scene>();
+	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/basic_lit.scn");
+	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/exScene.scn");
 
-	rapidjson::Document document;
-	bool success = wrap::json::Load("scenes/basic.scn", document);
-	if (!success)
-	{
-		LOG("error loading scene file %s.", "scenes/basic.scn");
-	}
-	else
-	{
-		scene->Read(document);
-		scene->Initialize();
-	}
+	//glm::mat4 model{ 1 };
+	//glm::mat4 projection = glm::perspective(45.0f, wrap::g_renderer.GetWidth() / (float)wrap::g_renderer.GetHeight(), 0.01f, 100.0f);
 
+	//std::vector<wrap::Transform> transforms;
+	//
+	//for (size_t i = 0; i < 1; i++)
+	//{
+	//	transforms.push_back({ {wrap::randomf(-10, 10) ,wrap::randomf(-10, 10),0}, {wrap::randomf(360),90,0} });
+	//}
 
-	glm::mat4 model{ 1 };
-	glm::mat4 projection = glm::perspective(45.0f, wrap::g_renderer.GetWidth() / (float)wrap::g_renderer.GetHeight(), 0.01f, 100.0f);
+	//auto m = wrap::g_resources.Get<wrap::Model>("models/spot.obj");
 
-	std::vector<wrap::Transform> transforms;
-	for (size_t i = 0; i < 1; i++)
-	{
-		//transforms.push_back({ {wrap::randomf(-10, 10) ,wrap::randomf(-10, 10),0}, {wrap::randomf(360),90,0} });
-	}
+	//// create material 
+	//glm::vec3 cameraPosition(0, 0, 6);
+	//std::shared_ptr<wrap::Material> material = wrap::g_resources.Get<wrap::Material>("Materials/box.mtrl");
+	//material->Bind();
 
-	auto m = wrap::g_resources.Get<wrap::Model>("models/spot.obj");
-
-	// create material 
-	glm::vec3 cameraPosition(0, 0, 6);
-	std::shared_ptr<wrap::Material> material = wrap::g_resources.Get<wrap::Material>("Materials/box.mtrl");
-	material->Bind();
-
-	material->GetProgram()->SetUniform("tint", glm::vec3{ 1, 0, 0 });
-	material->GetProgram()->SetUniform("scale", 0.5f);
+	//material->GetProgram()->SetUniform("tint", glm::vec3{ 1, 0, 0 });
+	//material->GetProgram()->SetUniform("scale", 0.5f);
+	
 	
 	int speed = 3;
-
+	
 	bool quit = false;
 	while (!quit)
 	{
@@ -108,16 +97,12 @@ int main(int argc, char** argv)
 		if (wrap::g_inputSystem.GetKeyState(wrap::key_escape) == wrap::InputSystem::KeyState::Pressed) quit = true;
 
 		// -- orge rotation -- 
-		//auto actor = scene->GetActorFromName("Ogre");
-		//if (actor)
-		//{
-		//	actor->m_transform.rotation.y += neu::g_time.deltaTime * 90.0f;
-		//}
+		auto actor = scene->GetActorFromName("Ogre");
+		if (actor)
+		{
+			actor->m_transform.rotation.y += wrap::g_time.deltaTime * 90.0f;
+		}
 		// -- orge rotation -- 
-		
-
-
-
 
 		scene->Update();
 

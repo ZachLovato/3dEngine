@@ -1,5 +1,6 @@
 #pragma once
 #include "Actor.h"
+#include "Resource/Resource.h"
 #include <list>
 #include <memory>
 
@@ -10,7 +11,7 @@ namespace wrap
 	class Renderer;
 	class Game;
 
-	class Scene : public GameObject, public ISerializable
+	class Scene : public GameObject, public ISerializable, public Resource
 	{
 	public:
 		Scene() = default;
@@ -26,6 +27,8 @@ namespace wrap
 
 		virtual bool Write(const rapidjson::Value& value) const override;
 		virtual bool Read(const rapidjson::Value& value) override;
+
+		bool Create(std::string filename, ...);
 
 		void Add(std::unique_ptr<Actor> actor);
 		void RemoveAll();

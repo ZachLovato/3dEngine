@@ -32,9 +32,7 @@ namespace wrap
 		}
 
 		// read colors 
-		READ_DATA(document, ambient);
-		READ_DATA(document, diffuse);
-		READ_DATA(document, specular);
+		READ_DATA(document, color);
 		READ_DATA(document, shininess);
 
 		return true;
@@ -42,6 +40,10 @@ namespace wrap
 
 	void Material::Bind()
 	{
+		m_program->Use();
+		m_program->SetUniform("material.color", color);
+		m_program->SetUniform("material.shininess", shininess);
+
 		m_program->Use();
 		for (auto& texture : m_textures)
 		{

@@ -24,11 +24,11 @@ namespace wrap
 	{
 		std::string model_name;
 		READ_DATA(value, model_name);
-		std::string mat_name;
-		READ_DATA(value, mat_name);
+		std::string material_name;
+		READ_DATA(value, material_name);
 
 		model = g_resources.Get<Model>(model_name);
-		material = g_resources.Get<Material>(mat_name);
+		material = g_resources.Get<Material>(material_name);
 
 		return true;
 	}

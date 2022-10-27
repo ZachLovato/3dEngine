@@ -101,4 +101,18 @@ namespace wrap
 		return true;
 	}
 
+	bool Scene::Create(std::string filename, ...)
+	{
+		rapidjson::Document document;
+		bool success = wrap::json::Load(filename, document);
+		if (!success)
+		{
+			LOG("error loading scene file %s.", "scenes/basic_lit.scn");
+			return false;
+		}
+		Read(document);
+		Initialize();
+		return true;
+	}
+
 }

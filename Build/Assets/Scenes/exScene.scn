@@ -1,0 +1,139 @@
+{
+  "actors": [
+    {
+      "type": "Actor",
+      "name": "Cliff",
+      "transform": {
+        "position": [
+          -3,
+          -3,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/CliffModel.obj",
+          "material_name": "Materials/Cliff.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Bunny",
+      "transform": {
+        "position": [
+          0,
+          -1,
+          3
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          90,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/Bunny.obj",
+          "material_name": "Materials/ogre.mtrl"
+        }
+      ]
+    },
+
+    {
+      "type": "Actor",
+      "name": "ogre",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/ogre.obj",
+          "material_name": "Materials/ogre.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Light",
+      "transform": {
+        "position": [
+          -5,
+          0,
+          0
+
+        ]
+      },
+      "components": [
+        {
+          "type": "LightComponent",
+          "color": [
+            0.5,
+            0.5,
+            0.5
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Camera",
+      "transform": {
+        "position": [
+          0,
+          0,
+          4
+        ],
+        "rotation": [
+          0,
+          180,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "CameraComponent",
+          "fov": 85,
+          "near": 0.1,
+          "far": 100
+        },
+        {
+          "type": "CameraController",
+          "speed": 4
+        }
+      ]
+    }
+  ]
+}
