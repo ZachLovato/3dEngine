@@ -5,7 +5,7 @@
       "name": "Cliff",
       "transform": {
         "position": [
-          -3,
+          0,
           -3,
           0
         ],
@@ -16,7 +16,7 @@
         ],
         "rotation": [
           0,
-          0,
+          -90,
           0
         ]
       },
@@ -30,40 +30,11 @@
     },
     {
       "type": "Actor",
-      "name": "Bunny",
+      "name": "Ogre",
       "transform": {
         "position": [
           0,
-          -1,
-          3
-        ],
-        "scale": [
-          1,
-          1,
-          1
-        ],
-        "rotation": [
-          90,
-          0,
-          0
-        ]
-      },
-      "components": [
-        {
-          "type": "ModelComponent",
-          "model_name": "Models/Bunny.obj",
-          "material_name": "Materials/ogre.mtrl"
-        }
-      ]
-    },
-
-    {
-      "type": "Actor",
-      "name": "ogre",
-      "transform": {
-        "position": [
-          0,
-          0,
+          2,
           0
         ],
         "scale": [
@@ -80,7 +51,7 @@
       "components": [
         {
           "type": "ModelComponent",
-          "model_name": "Models/ogre.obj",
+          "model_name": "Models/Ogre.obj",
           "material_name": "Materials/ogre.mtrl"
         }
       ]

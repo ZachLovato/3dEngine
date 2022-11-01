@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 
 
 	// load scene 
-	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/basic_lit.scn");
+	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/exScene.scn");
 	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/exScene.scn");
 
 	//glm::mat4 model{ 1 };

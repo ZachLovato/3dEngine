@@ -2,7 +2,6 @@
   "program": "shaders/basic.prog",
   "texture": "Texture/spot.png",
   "ambient": [
-
     1,
     1,
     1

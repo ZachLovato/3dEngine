@@ -4,7 +4,7 @@ in layout(location = 1) vec2 vtexcoord;
 in layout(location = 2) vec3 vnormal;
  
 out vec2 texcoord;
-flat out vec3 color;
+out vec3 color;
  
 struct Light
 {
@@ -57,7 +57,8 @@ void main()
 		specular = light.color * intensity;
 	}
  
-	color = vec3(0.2) + diffuse + specular;
+	color = vec3(1) + diffuse + specular;
+	//color = ambient + diffuse + specular;
  
 	mat4 mvp = projection * view * model;
 	gl_Position = mvp * vec4(vposition, 1.0);

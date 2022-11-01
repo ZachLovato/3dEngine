@@ -23,7 +23,7 @@
       "components": [
         {
           "type": "ModelComponent",
-          "model_name": "Models/buddha.obj",
+          "model_name": "Models/sphere.obj",
           "material_name": "Materials/ogre.mtrl"
         }
       ]
@@ -33,9 +33,9 @@
       "name": "Light",
       "transform": {
         "position": [
+          0,
           2,
-          -9,
-          5
+          0
 
         ]
       },
