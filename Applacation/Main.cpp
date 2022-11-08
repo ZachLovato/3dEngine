@@ -65,26 +65,6 @@ int main(int argc, char** argv)
 	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/basic_lit.scn");
 	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/exScene.scn");
 
-	//glm::mat4 model{ 1 };
-	//glm::mat4 projection = glm::perspective(45.0f, wrap::g_renderer.GetWidth() / (float)wrap::g_renderer.GetHeight(), 0.01f, 100.0f);
-
-	//std::vector<wrap::Transform> transforms;
-	//
-	//for (size_t i = 0; i < 1; i++)
-	//{
-	//	transforms.push_back({ {wrap::randomf(-10, 10) ,wrap::randomf(-10, 10),0}, {wrap::randomf(360),90,0} });
-	//}
-
-	//auto m = wrap::g_resources.Get<wrap::Model>("models/spot.obj");
-
-	//// create material 
-	//glm::vec3 cameraPosition(0, 0, 6);
-	//std::shared_ptr<wrap::Material> material = wrap::g_resources.Get<wrap::Material>("Materials/box.mtrl");
-	//material->Bind();
-
-	//material->GetProgram()->SetUniform("tint", glm::vec3{ 1, 0, 0 });
-	//material->GetProgram()->SetUniform("scale", 0.5f);
-	
 	
 	int speed = 3;
 	
