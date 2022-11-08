@@ -30,6 +30,7 @@ namespace wrap
 	template<typename T, typename ... TArgs>
 	inline std::shared_ptr<T> ResourceManager::Get(const std::string& name, TArgs... args)
 	{
+
 		if (m_resources.find(name) != m_resources.end())
 		{
 			// found

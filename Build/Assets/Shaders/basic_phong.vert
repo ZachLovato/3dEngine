@@ -12,9 +12,7 @@ uniform mat4 view;
 uniform mat4 projection;
  
 void main()
-{
-	texcoord = vtexcoord;
-	
+{	
 	// create model view matrix
 	mat4 model_view = view * model;
 	// transform normals to view space
@@ -23,6 +21,7 @@ void main()
 	position = vec3(model_view * vec4(vposition, 1));
 	//pass through
 	texcoord = vtexcoord;
+	
 
 	mat4 mvp = projection * view * model;
 	gl_Position = mvp * vec4(vposition, 1.0);

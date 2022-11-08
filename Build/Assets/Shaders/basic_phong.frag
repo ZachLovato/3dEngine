@@ -26,7 +26,7 @@ uniform sampler2D textureSampler;
  
 void main()
 {
-
+	//AMBIENT
 	vec3 ambient = light.ambient * material.color;
 
 	// calculate light direction (unit vector)
@@ -49,6 +49,7 @@ void main()
 	}
  
 	//color = vec3(0.2) + diffuse + specular;
+	//color = ambient + diffuse + specular;
 
 	fcolor = vec4(ambient + diffuse, 1) * texture(textureSampler, texcoord) + vec4(specular, 1);
 }

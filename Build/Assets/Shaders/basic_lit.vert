@@ -29,6 +29,7 @@ void main()
 {
 	texcoord = vtexcoord;
  
+	//AMBIENT
 	vec3 ambient = light.ambient * material.color;
 
 	// DIFFUSE
@@ -50,6 +51,8 @@ void main()
 	vec3 specular = vec3(0);
 	if (intensity > 0)
 	{
+	// CALCULATE reflection vector
+	// light
 		vec3 reflection = reflect(-light_dir, normal);
 		vec3 view_dir = normalize(-vec3(position));
 		intensity = max(dot(reflection, view_dir), 0);
@@ -57,7 +60,8 @@ void main()
 		specular = light.color * intensity;
 	}
  
-	color = vec3(0.2) + diffuse + specular;
+	//color = vec3(0.2) + diffuse + specular;
+	color = ambient + diffuse + specular;
  
 	mat4 mvp = projection * view * model;
 	gl_Position = mvp * vec4(vposition, 1.0);

@@ -65,7 +65,6 @@ int main(int argc, char** argv)
 	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/basic_lit.scn");
 	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/exScene.scn");
 
-	
 	int speed = 3;
 	
 	bool quit = false;
