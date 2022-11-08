@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 
 
 	// load scene 
-	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/texture.scn");
+	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/test.scn");
 	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/exScene.scn");
 
 	int speed = 3;
@@ -82,6 +82,16 @@ int main(int argc, char** argv)
 		//	actor->m_transform.rotation.y += wrap::g_time.deltaTime * 90.0f;
 		//}
 		// -- orge rotation -- 
+
+		// -- light rotation --
+		auto actor = scene->GetActorFromName("Light");
+		if (actor)
+		{
+			// move light using sin wave
+			actor->m_transform.position.x = std::sin(wrap::g_time.time);
+		}
+		// -- light rotation --
+
 
 		scene->Update();
 

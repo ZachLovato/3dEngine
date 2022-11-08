@@ -22,6 +22,15 @@
     <Filter Include="Resource Files\Shaders">
       <UniqueIdentifier>{06e165a1-9e8e-4026-aea0-5608fc337fdd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Shaders\Fx">
+      <UniqueIdentifier>{6a605a72-7ec8-4600-ae38-af9cbbd93211}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Lit">
+      <UniqueIdentifier>{32a1bc17-86bc-45ab-a808-4c57eb8a8d2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\UnLit">
+      <UniqueIdentifier>{7817ae2c-7fac-43ad-b35b-1cc4e6b095e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -106,6 +115,9 @@
     </None>
     <None Include="..\Build\Assets\Materials\multi.mtrl">
       <Filter>Resource Files\Mats</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\Test.scn">
+      <Filter>Resource Files\Scenes</Filter>
     </None>
   </ItemGroup>
 </Project>

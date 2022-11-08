@@ -1,5 +1,34 @@
 {
   "actors": [
+
+    {
+      "type": "Actor",
+      "name": "floor",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          0,
+          90
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/quad.obj",
+          "material_name": "Materials/ogre.mtrl"
+        }
+      ]
+    },
     {
       "type": "Actor",
       "name": "Ogre",
@@ -23,8 +52,8 @@
       "components": [
         {
           "type": "ModelComponent",
-          "model_name": "Models/quad.obj",
-          "material_name": "Materials/muti.mtrl"
+          "model_name": "Models/ogre.obj",
+          "material_name": "Materials/ogre.mtrl"
         }
       ]
     },
@@ -34,7 +63,7 @@
       "transform": {
         "position": [
           0,
-          0,
+          3,
           2
         ],
         "rotation": [
@@ -51,14 +80,9 @@
             1,
             1
           ],
-          "rotation": [
-            85,
-            0,
-            0
-          ],
-          "type_name": "point",
-          "cutoff": 60.0,
-          "exponent": 5.0
+          "type_name": "spot",
+          "cutoff": 45.0,
+          "exponent": 50.0
         }
       ]
     },

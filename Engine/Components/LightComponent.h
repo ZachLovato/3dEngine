@@ -6,6 +6,13 @@ namespace wrap
 	class LightComponent : public Component
 	{
 	public:
+		enum class Type
+		{
+			Point,
+			Directional,
+			Spot
+		};
+
 		CLASS_DECLARATION(LightComponent)
 
 		void Update() override;
@@ -14,6 +21,9 @@ namespace wrap
 		virtual bool Read(const rapidjson::Value& value) override;
 
 	public:
+		Type type = Type::Point;
 		glm::vec3 color{ 0 };
+		float cutoff = 45.0f;
+		float exponent = 50.0f;
 	};
 }
