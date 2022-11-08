@@ -112,6 +112,7 @@ namespace wrap
 		}
 		Read(document);
 		Initialize();
+
 		return true;
 	}
 

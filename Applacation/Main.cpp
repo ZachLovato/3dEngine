@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 
 
 	// load scene 
-	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/basic_lit.scn");
+	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/texture.scn");
 	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/exScene.scn");
 
 	int speed = 3;
@@ -76,11 +76,11 @@ int main(int argc, char** argv)
 		if (wrap::g_inputSystem.GetKeyState(wrap::key_escape) == wrap::InputSystem::KeyState::Pressed) quit = true;
 
 		// -- orge rotation -- 
-		auto actor = scene->GetActorFromName("Ogre");
-		if (actor)
-		{
-			actor->m_transform.rotation.y += wrap::g_time.deltaTime * 90.0f;
-		}
+		//auto actor = scene->GetActorFromName("Ogre");
+		//if (actor)
+		//{
+		//	actor->m_transform.rotation.y += wrap::g_time.deltaTime * 90.0f;
+		//}
 		// -- orge rotation -- 
 
 		scene->Update();
