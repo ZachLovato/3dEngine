@@ -147,6 +147,7 @@
     <None Include="..\Build\Assets\Materials\Cliff.mtrl" />
     <None Include="..\Build\Assets\Materials\multi.mtrl" />
     <None Include="..\Build\Assets\Materials\ogre.mtrl" />
+    <None Include="..\Build\Assets\Materials\plane.mtrl" />
     <None Include="..\Build\Assets\Scenes\basic.scn" />
     <None Include="..\Build\Assets\Scenes\basic_lit.scn" />
     <None Include="..\Build\Assets\Scenes\exScene.scn" />

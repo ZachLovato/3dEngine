@@ -1,9 +1,5 @@
-#pragma once
-#include "Renderer.h"
-#include "Resource/Resource.h"
-#include <vector>
-#include <string>
-
+#pragma once 
+#include "Renderer.h" 
 #include "VertexBuffer.h" 
 #include "Math/MathUtils.h" 
 
@@ -33,10 +29,5 @@ namespace wrap
 
 	public:
 		VertexBuffer m_vertexBuffer;
-	private:
-		wrap::Color m_color{ 0, 0, 0, 0 };
-		std::vector<wrap::Vector2> m_points;
-
-		float m_radius = 0;
 	};
 }

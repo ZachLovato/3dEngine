@@ -15,11 +15,13 @@ namespace wrap
 		SDL_Init(SDL_INIT_VIDEO);
 		IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
 		TTF_Init();
+
+
 	}
 
 	void Renderer::Shutdown()
 	{
-		SDL_DestroyRenderer(m_renderer);
+		SDL_GL_DeleteContext(m_context);
 		SDL_DestroyWindow(m_window);
 		TTF_Quit();
 		IMG_Quit();
@@ -32,8 +34,7 @@ namespace wrap
 
 		int flags = (fullscreen) ? SDL_WINDOW_FULLSCREEN : (SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
-		m_window = SDL_CreateWindow(name, 100, 100, width, height, SDL_WINDOW_OPENGL
-			| flags);
+		m_window = SDL_CreateWindow(name, 100, 100, width, height, SDL_WINDOW_OPENGL | flags);
 
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
@@ -53,7 +54,7 @@ namespace wrap
 
 	void Renderer::BeginFrame()
 	{
-		glClearColor(0.3f, 0.3f, 0.3f, 1);
+		glClearColor(0, 0, 0, 1);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
@@ -101,7 +102,7 @@ namespace wrap
 		dest.h = (int)(size.y);
 
 		SDL_Point center{ (int)origin.x, (int)origin.y };
-				
+
 		//SDL_RenderCopyEx(m_renderer, texture->m_texture, nullptr, &dest, angle, &center, SDL_FLIP_NONE);
 	}
 
@@ -152,8 +153,8 @@ namespace wrap
 		SDL_Point center{ (int)origin.x, (int)origin.y };
 
 		SDL_RendererFlip flip = (flipH) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
-		//SDL_RenderCopyEx(m_renderer, texture->m_texture, &src, &dest, math::RadToDeg(mx.GetRotation()), &center, flip);
 		*/
+		//SDL_RenderCopyEx(m_renderer, texture->m_texture, &src, &dest, math::RadToDeg(mx.GetRotation()), &center, flip);
 	}
 
 }

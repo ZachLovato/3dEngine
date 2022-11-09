@@ -1,4 +1,4 @@
-#pragma once
+#pragma once 
 #include "Resource/Resource.h" 
 #include "Math/MathUtils.h" 
 #include <vector> 
@@ -15,15 +15,14 @@ namespace wrap
 		virtual bool Create(std::string filename, ...) override;
 
 		void Bind();
-		void Link();
 
 		std::shared_ptr<Program> GetProgram() { return m_program; }
 
 	public:
 		glm::vec3 color;
 		float shininess = 0;
-		glm::vec2 uv_tiling{ 1, 1 };
-		glm::vec2 uv_offset{ 0, 0 };
+		glm::vec2 uv_tiling{ 1,1 };
+		glm::vec2 uv_offset{ 0,0 };
 
 	private:
 		std::shared_ptr<Program> m_program;

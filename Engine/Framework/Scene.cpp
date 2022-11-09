@@ -1,7 +1,7 @@
 #include "Scene.h"
 #include "Factory.h"
-#include "Engine.h"
 #include <algorithm>
+#include "Engine.h"
 #include <iostream>
 
 namespace wrap
@@ -21,7 +21,7 @@ namespace wrap
 			{
 				iter = m_actors.erase(iter);
 			}
-			else 
+			else
 			{
 				iter++;
 			}
@@ -34,8 +34,8 @@ namespace wrap
 		auto camera = GetActorFromName("Camera");
 		if (camera)
 		{
-			g_renderer.SetView(camera->GetComponent<CameraComponent>()-> GetView());
-			g_renderer.SetProjection(camera->GetComponent<CameraComponent>()-> GetProjection());
+			g_renderer.SetView(camera->GetComponent<CameraComponent>()->GetView());
+			g_renderer.SetProjection(camera->GetComponent<CameraComponent>()->GetProjection());
 		}
 
 		// draw actors 
@@ -43,6 +43,20 @@ namespace wrap
 		{
 			actor->Draw(renderer);
 		}
+	}
+
+	bool Scene::Create(std::string filename, ...)
+	{
+		rapidjson::Document document;
+		bool succsess = wrap::json::Load(filename, document);
+		if (!succsess)
+		{
+			LOG("Error loading scene file %s", filename);
+			return false;
+		}
+		Read(document);
+		Initialize();
+		return true;
 	}
 
 	void Scene::Add(std::unique_ptr<Actor> actor)
@@ -96,22 +110,7 @@ namespace wrap
 				}
 			}
 		}
-		
 
-		return true;
-	}
-
-	bool Scene::Create(std::string filename, ...)
-	{
-		rapidjson::Document document;
-		bool success = wrap::json::Load(filename, document);
-		if (!success)
-		{
-			LOG("error loading scene file %s.", "scenes/basic_lit.scn");
-			return false;
-		}
-		Read(document);
-		Initialize();
 
 		return true;
 	}

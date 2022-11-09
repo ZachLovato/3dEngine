@@ -27,6 +27,7 @@ namespace wrap
 		for (auto texture : textures)
 		{
 			// get texture resource 
+
 			m_textures.push_back(wrap::g_resources.Get<wrap::Texture>(texture));
 		}
 
@@ -34,6 +35,7 @@ namespace wrap
 		READ_DATA(document, color);
 		READ_DATA(document, shininess);
 
+		//read uvs
 		READ_DATA(document, uv_tiling);
 		READ_DATA(document, uv_offset);
 
@@ -48,16 +50,10 @@ namespace wrap
 		m_program->SetUniform("material.uv_tiling", uv_tiling);
 		m_program->SetUniform("material.uv_offset", uv_offset);
 
-		m_program->Use();
 		for (size_t i = 0; i < m_textures.size(); i++)
 		{
-			m_textures[i]->SetActive(GL_TEXTURE0 + (int)i);
+			m_textures[i]->setActive(GL_TEXTURE0 + (int)i);
 			m_textures[i]->Bind();
 		}
-	}
-
-	void Material::Link()
-	{
-		m_program->Link();
 	}
 }

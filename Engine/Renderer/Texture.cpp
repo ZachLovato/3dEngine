@@ -1,9 +1,9 @@
-#include "Texture.h"
-#include "Renderer.h"
-#include "Core/Logger.h"
-#include <SDL.h>
-#include <SDL_image.h>
-#include <cstdarg>
+#include "Texture.h" 
+#include "Renderer.h" 
+#include "Core/Logger.h" 
+#include <SDL.h> 
+#include <SDL_image.h> 
+#include <cstdarg> 
 
 namespace wrap
 {
@@ -54,9 +54,9 @@ namespace wrap
         GLenum format = (surface->format->BytesPerPixel == 4) ? GL_RGBA : GL_RGB;
         glTexImage2D(m_target, 0, format, surface->w, surface->h, 0, format, GL_UNSIGNED_BYTE, surface->pixels);
 
-        glTexParameteri(m_target, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(m_target, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexParameteri(m_target, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(m_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR); //GL_LINEAR GL_LINEAR
+        glTexParameteri(m_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(m_target, GL_TEXTURE_WRAP_S, GL_REPEAT); //GL_REPEAT
         glTexParameteri(m_target, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
         // !! call SDL_FreeSurface with surface as the parameter 

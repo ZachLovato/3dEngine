@@ -1,5 +1,5 @@
-#pragma once
-#include "RenderComponent.h"
+#pragma once 
+#include "RenderComponent.h" 
 
 namespace wrap
 {
@@ -12,7 +12,7 @@ namespace wrap
 	public:
 		CLASS_DECLARATION(ModelComponent)
 
-		virtual void Update() override {}
+			virtual void Update() override {}
 		virtual void Draw(Renderer& renderer) override;
 
 

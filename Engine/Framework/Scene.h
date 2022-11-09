@@ -21,14 +21,14 @@ namespace wrap
 
 		CLASS_DECLARATION(Scene)
 
-		void Initialize() override;
+			void Initialize() override;
 		void Update() override;
 		void Draw(Renderer& renderer);
 
+		virtual bool Create(std::string filename, ...) override;
+
 		virtual bool Write(const rapidjson::Value& value) const override;
 		virtual bool Read(const rapidjson::Value& value) override;
-
-		bool Create(std::string filename, ...);
 
 		void Add(std::unique_ptr<Actor> actor);
 		void RemoveAll();
@@ -45,7 +45,7 @@ namespace wrap
 		Game* GetGame() { return m_game; }
 
 	private:
-		Game* m_game =nullptr;
+		Game* m_game = nullptr;
 		std::list<std::unique_ptr<Actor>> m_actors;
 	};
 

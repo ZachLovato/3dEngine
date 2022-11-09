@@ -18,7 +18,7 @@ namespace wrap
                 }
             }
 
-            //data.size = data.size * scale_offset * m_owner->m_transform.scale;
+            //  data.size = data.size * scale_offset * m_owner->m_transform.scale;
 
             if (component->m_body->GetType() == b2_staticBody)
             {
@@ -30,7 +30,7 @@ namespace wrap
             }
         }
     }
-    
+
     void CollisionComponent::Update()
     {
     }
@@ -63,4 +63,3 @@ namespace wrap
         return true;
     }
 }
-

@@ -6,7 +6,7 @@ namespace wrap
 {
 	void CameraComponent::Update()
 	{
-		m_view = glm::lookAt(m_owner->m_transform.position, m_owner -> m_transform.position + m_owner->m_transform.getForward(), glm::vec3{ 0, 1, 0 });
+		m_view = glm::lookAt(m_owner->m_transform.position, m_owner->m_transform.position + m_owner->m_transform.getForward(), glm::vec3{ 0, 1, 0 });
 	}
 
 	void CameraComponent::SetPerspective(float fov, float aspectRatio, float near,
@@ -41,5 +41,4 @@ namespace wrap
 
 		return true;
 	}
-
 }

@@ -1,9 +1,8 @@
 {
   "program": "shaders/normal_phong.prog",
   "textures": [
-    "Texture/rocks.jpg",
-    "Texture/rocks_normal.jpg"
-
+    "Textures/rocks.jpg",
+    "Textures/rocks_normal.jpg"
   ],
   "uv_tiling": [ 1, 1 ],
   "uv_offset": [ 0, 0 ],

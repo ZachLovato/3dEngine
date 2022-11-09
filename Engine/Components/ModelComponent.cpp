@@ -1,6 +1,9 @@
-#include "Renderer/Model.h" 
-#include "Framework/Actor.h" 
-#include "Engine.h" 
+#include "ModelComponent.h"
+#include "Renderer/Model.h"
+#include "Framework/Actor.h"
+#include "ModelComponent.h" 
+#include "Renderer/Material.h" 
+#include "Engine.h"
 
 namespace wrap
 {
@@ -8,9 +11,9 @@ namespace wrap
 	{
 		material->Bind();
 		// set model view projection matrix for model 
-		material->GetProgram() -> SetUniform("model", (glm::mat4)m_owner->m_transform);
-		material->GetProgram() -> SetUniform("view", renderer.GetView());
-		material->GetProgram() -> SetUniform("projection", renderer.GetProjection());
+		material->GetProgram()->SetUniform("model", (glm::mat4)m_owner->m_transform);
+		material->GetProgram()->SetUniform("view", renderer.GetView());
+		material->GetProgram()->SetUniform("projection", renderer.GetProjection());
 
 		model->m_vertexBuffer.Draw();
 	}
@@ -22,13 +25,17 @@ namespace wrap
 
 	bool ModelComponent::Read(const rapidjson::Value& value)
 	{
+		// read model name 
 		std::string model_name;
 		READ_DATA(value, model_name);
+		// get model from model name 
+		model = g_resources.Get<wrap::Model>(model_name);
+
+		// read material name 
 		std::string material_name;
 		READ_DATA(value, material_name);
-
-		model = g_resources.Get<Model>(model_name);
-		material = g_resources.Get<Material>(material_name);
+		// get material from material name 
+		material = g_resources.Get<wrap::Material>(material_name);
 
 		return true;
 	}

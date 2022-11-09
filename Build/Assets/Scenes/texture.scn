@@ -23,8 +23,8 @@
       "components": [
         {
           "type": "ModelComponent",
-          "model_name": "Models/quad.obj",
-          "material_name": "Materials/muti.mtrl"
+          "model_name": "Models/ogre.obj",
+          "material_name": "Materials/ogre.mtrl"
         }
       ]
     },
@@ -34,8 +34,9 @@
       "transform": {
         "position": [
           0,
-          0,
-          2
+          2,
+          1
+
         ],
         "rotation": [
           85,
@@ -51,14 +52,9 @@
             1,
             1
           ],
-          "rotation": [
-            85,
-            0,
-            0
-          ],
           "type_name": "point",
-          "cutoff": 60.0,
-          "exponent": 5.0
+          "cutoff": 45.0,
+          "exponent": 1.0
         }
       ]
     },

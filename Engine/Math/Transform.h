@@ -10,20 +10,17 @@ namespace wrap
 	{
 		glm::vec3 position;
 		glm::vec3 rotation{ 0 };
-		glm::vec3 scale{ 1, 1, 1 };
+		glm::vec3 scale{ 1 };
 
 		glm::mat4 matrix;
 
 		Transform() = default;
-		Transform(const glm::vec3& position, const glm::vec3 rotation = { 0, 0, 0 }, const glm::vec3& scale = { 1, 1, 1 }) :
+		Transform(const glm::vec3& position, const glm::vec3& rotation = glm::vec3{ 0 }, const glm::vec3& scale = { 1,1,1 }) :
 			position{ position },
 			rotation{ rotation },
-			scale{ scale } 
+			scale{ scale }
 		{}
 
-		glm::vec3 getRight() { return ((glm::mat4)(*this))[0]; }
-		glm::vec3 getUp() { return ((glm::mat4)(*this))[1]; }
-		glm::vec3 getForward() { return ((glm::mat4)(*this))[2]; }
 
 		virtual bool Write(const rapidjson::Value& value) const override;
 		virtual bool Read(const rapidjson::Value& value) override;
@@ -35,17 +32,20 @@ namespace wrap
 
 		void Update(const glm::mat4& parent)
 		{
-			matrix = *this;
 			matrix = parent * (glm::mat4)*this;
 		}
 
-		operator glm::mat4 () const
+		operator glm::mat4() const
 		{
 			glm::mat4 mxScale = glm::scale(scale);
-			glm::mat4 mxRotation = glm::eulerAngleXYX(glm::radians(rotation.x), glm::radians(rotation.y), glm::radians(rotation.z));
+			glm::mat4 mxRotation = glm::eulerAngleXYZ(glm::radians(rotation.x), glm::radians(rotation.y), glm::radians(rotation.z));
 			glm::mat4 mxTranslation = glm::translate(position);
 
 			return { mxTranslation * mxRotation * mxScale };
 		}
+
+		glm::vec3 getRight() { return ((glm::mat4)(*this))[0]; }
+		glm::vec3 getUp() { return ((glm::mat4)(*this))[1]; }
+		glm::vec3 getForward() { return ((glm::mat4)(*this))[2]; }
 	};
 }
