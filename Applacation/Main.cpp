@@ -3,50 +3,6 @@
 #include <Renderer/Program.h>
 #include <Renderer/Material.h>
 
-float vertices[] = {
-	-0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-	 0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-	 0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
-	 0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
-	-0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
-	-0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-
-	-0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-	 0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-	 0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
-	 0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
-	-0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
-	-0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-
-	-0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-	-0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
-	-0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
-	-0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
-	-0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-	-0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-
-	 0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-	 0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
-	 0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
-	 0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
-	 0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-	 0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-
-	-0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
-	 0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
-	 0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-	 0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-	-0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-	-0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
-
-	-0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f,
-	 0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
-	 0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-	 0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-	-0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-	-0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f
-};
-
 int main(int argc, char** argv)
 {
 	LOG("Application Started...");
@@ -55,18 +11,24 @@ int main(int argc, char** argv)
 
 	wrap::Engine::Instance().Initialize();
 	wrap::Engine::Instance().Register();
-	LOG("Engine Initialized...");
+	LOG("Engine Initialized");
 
-	wrap::g_renderer.CreateWindow("page...", 800, 600);
-	LOG("Window Initialized...");
+	wrap::g_renderer.CreateWindow("Neumont", 800, 600);
 
+	auto scene = std::make_unique<wrap::Scene>();
 
-	// load scene 
-	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/test.scn");
-	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/exScene.scn");
+	rapidjson::Document document;
+	bool success = wrap::json::Load("scenes/texture.scn", document);
+	if (!success)
+	{
+		LOG("error loading scene file %s.", "Scenes/basic.scn");
+	}
+	else
+	{
+		scene->Read(document);
+		scene->Initialize();
+	}
 
-	int speed = 3;
-	
 	bool quit = false;
 	while (!quit)
 	{
@@ -75,23 +37,28 @@ int main(int argc, char** argv)
 
 		if (wrap::g_inputSystem.GetKeyState(wrap::key_escape) == wrap::InputSystem::KeyState::Pressed) quit = true;
 
-		// -- orge rotation -- 
-		//auto actor = scene->GetActorFromName("Ogre");
-		//if (actor)
-		//{
-		//	actor->m_transform.rotation.y += wrap::g_time.deltaTime * 90.0f;
-		//}
-		// -- orge rotation -- 
-
-		// -- light rotation --
-		auto actor = scene->GetActorFromName("Light");
-		if (actor)
+		auto actor1 = scene->GetActorFromName("Ogre");
+		if (actor1)
 		{
-			// move light using sin wave
-			actor->m_transform.position.x = std::sin(wrap::g_time.time);
+			//actor1->m_transform.rotation.y += wrap::g_time.deltaTime * 30;
 		}
-		// -- light rotation --
 
+
+		actor1 = scene->GetActorFromName("Light");
+		if (actor1)
+		{
+			actor1->m_transform.position.x = std::sin(wrap::g_time.time) * 2;
+		}
+
+
+		auto actor2 = scene->GetActorFromName("Box");
+
+		auto material = wrap::g_resources.Get<wrap::Material>("Materials/multi.mtrl");
+		if (material)
+		{
+			//material->uv_offset.y += wrap::g_time.deltaTime;
+			//material->uv_offset.x += wrap::g_time.deltaTime;
+		}
 
 		scene->Update();
 
@@ -101,7 +68,6 @@ int main(int argc, char** argv)
 
 		wrap::g_renderer.EndFrame();
 	}
-
 	scene->RemoveAll();
 	wrap::Engine::Instance().Shutdown();
 
