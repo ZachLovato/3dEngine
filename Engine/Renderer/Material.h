@@ -22,6 +22,8 @@ namespace wrap
 	public:
 		glm::vec3 color;
 		float shininess = 0;
+		glm::vec2 uv_tiling{ 1, 1 };
+		glm::vec2 uv_offset{ 0, 0 };
 
 	private:
 		std::shared_ptr<Program> m_program;

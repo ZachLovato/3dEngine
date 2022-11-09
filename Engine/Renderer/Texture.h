@@ -23,6 +23,7 @@ namespace wrap
 		bool CreateFromSurface(SDL_Surface* surface, Renderer& renderer);
 
 		bool Load(const std::string& filename, Renderer& renderer);
+		void SetActive(GLuint unit) { glActiveTexture(unit); }
 		void Bind() { glBindTexture(m_target, m_texture); }
 
 		Vector2 GetSize() const;
@@ -33,9 +34,6 @@ namespace wrap
 		void FlipSurface(SDL_Surface* surface);
 
 		GLuint m_texture = 0;
-		GLuint m_uint = GL_TEXTURE0;
 		GLenum m_target = GL_TEXTURE_2D;
-
-		//SDL_Texture* m_texture = nullptr;
 	};
 }
