@@ -1,4 +1,0 @@
-{
-	"vertex_shader": "shaders/emissive_phong.vert",
-	"fragment_shader": "shaders/emissive_phong.frag"
-}

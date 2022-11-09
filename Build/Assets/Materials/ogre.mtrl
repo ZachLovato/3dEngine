@@ -1,13 +1,13 @@
 {
-  "program": "shaders/texture_phong.prog",
+  "program": "shaders/lit/texture.prog",
   "textures": [
-    "textures/ogre_diffuse.bmp",
+    "textures/lava.png", 
     "textures/ogre_normal.bmp"
   ],
   "color": [
-    1,
-    1,
-    1
+    0,
+    0.4,
+    0
   ],
   "shininess": 256
 } 

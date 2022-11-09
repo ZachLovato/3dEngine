@@ -65,33 +65,6 @@
     <None Include="..\Build\Assets\Shaders\basic_phong.vert">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="..\Build\Assets\Shaders\emissive_phong.frag">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\emissive_phong.prog">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\emissive_phong.vert">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\normal_phong.frag">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\normal_phong.prog">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\normal_phong.vert">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\texture_phong.frag">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\texture_phong.prog">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="..\Build\Assets\Shaders\texture_phong.vert">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
     <None Include="..\Build\Assets\Scenes\basic.scn">
       <Filter>Resource Files\Scenes</Filter>
     </None>
@@ -121,6 +94,51 @@
     </None>
     <None Include="..\Build\Assets\Materials\plane.mtrl">
       <Filter>Resource Files\Mats</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture.frag">
+      <Filter>Resource Files\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture.prog">
+      <Filter>Resource Files\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\texture.vert">
+      <Filter>Resource Files\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\normal.frag">
+      <Filter>Resource Files\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\normal.prog">
+      <Filter>Resource Files\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Lit\normal.vert">
+      <Filter>Resource Files\Shaders\Lit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\UnLit\color.vert">
+      <Filter>Resource Files\Shaders\UnLit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\UnLit\texture.frag">
+      <Filter>Resource Files\Shaders\UnLit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\UnLit\texture.prog">
+      <Filter>Resource Files\Shaders\UnLit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\UnLit\texture.vert">
+      <Filter>Resource Files\Shaders\UnLit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\UnLit\color.frag">
+      <Filter>Resource Files\Shaders\UnLit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\UnLit\color.prog">
+      <Filter>Resource Files\Shaders\UnLit</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Fx\cell.frag">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Fx\cell.prog">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Fx\cell.vert">
+      <Filter>Resource Files\Shaders\Fx</Filter>
     </None>
   </ItemGroup>
 </Project>
