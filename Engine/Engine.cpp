@@ -22,11 +22,19 @@ namespace wrap
 
 	void Engine::Update()
 	{
+		SDL_Event event;
+		while (SDL_PollEvent(&event))
+		{
+			g_gui.Update(event);
+		}
+		
 		g_time.Tick();
 		g_eventManager.Update();
 		g_physicsSystem.Update();
 		g_inputSystem.Update();
 		g_audioSystem.Update();
+		
+		
 	}
 
 	void Engine::Shutdown()
@@ -39,6 +47,7 @@ namespace wrap
 		g_inputSystem.Shutdown();
 		g_audioSystem.Shutdown();
 		g_renderer.Shutdown();
+		g_gui.Shutdown();
 	}
 
 	void Engine::Register()

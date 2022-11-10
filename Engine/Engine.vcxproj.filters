@@ -39,6 +39,12 @@
     <Filter Include="Source\Physics">
       <UniqueIdentifier>{7e2609ab-24c6-4ca5-884d-c8db90cfd74a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\External">
+      <UniqueIdentifier>{958fb12f-e4d2-43d7-8f5b-3d656a399de4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\External\iamgui">
+      <UniqueIdentifier>{4bbab67f-c880-40a0-9c3e-f4be4dc4ddd0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\MathUtils.cpp">
@@ -178,6 +184,30 @@
     </ClCompile>
     <ClCompile Include="Core\Utilities.cpp">
       <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\iamgui\imgui.cpp">
+      <Filter>Source\External\iamgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\iamgui\imgui_demo.cpp">
+      <Filter>Source\External\iamgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\iamgui\imgui_draw.cpp">
+      <Filter>Source\External\iamgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\iamgui\imgui_impl_opengl3.cpp">
+      <Filter>Source\External\iamgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\iamgui\imgui_impl_sdl.cpp">
+      <Filter>Source\External\iamgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\iamgui\imgui_tables.cpp">
+      <Filter>Source\External\iamgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\iamgui\imgui_widgets.cpp">
+      <Filter>Source\External\iamgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\GUI.cpp">
+      <Filter>Source\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -357,6 +387,36 @@
     </ClInclude>
     <ClInclude Include="Core\Utilities.h">
       <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\iamgui\imconfig.h">
+      <Filter>Source\External\iamgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\iamgui\imgui.h">
+      <Filter>Source\External\iamgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\iamgui\imgui_impl_opengl3.h">
+      <Filter>Source\External\iamgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\iamgui\imgui_impl_opengl3_loader.h">
+      <Filter>Source\External\iamgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\iamgui\imgui_impl_sdl.h">
+      <Filter>Source\External\iamgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\iamgui\imgui_internal.h">
+      <Filter>Source\External\iamgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\iamgui\imstb_rectpack.h">
+      <Filter>Source\External\iamgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\iamgui\imstb_textedit.h">
+      <Filter>Source\External\iamgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ThirdParty\iamgui\imstb_truetype.h">
+      <Filter>Source\External\iamgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\GUI.h">
+      <Filter>Source\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

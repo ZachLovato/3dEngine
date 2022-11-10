@@ -15,28 +15,18 @@ int main(int argc, char** argv)
 
 	wrap::g_renderer.CreateWindow("page...", 800, 600);
 	LOG("Window Initialized...");
+	wrap::g_gui.Initialize(wrap::g_renderer);
 
 	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/texture.scn");
 	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/exScene.scn");
 
-	/*auto scene = std::make_unique<wrap::Scene>();
 
-	rapidjson::Document document;
-	bool success = wrap::json::Load("scenes/texture.scn", document);
-	if (!success)
-	{
-		LOG("error loading scene file %s.", "Scenes/basic.scn");
-	}
-	else
-	{
-		scene->Read(document);
-		scene->Initialize();
-	}*/
-
+	glm::vec3 pos(0,0,0);
 	bool quit = false;
 	while (!quit)
 	{
 		wrap::Engine::Instance().Update();
+		wrap::g_gui.BeginFrame(wrap::g_renderer);
 
 
 		if (wrap::g_inputSystem.GetKeyState(wrap::key_escape) == wrap::InputSystem::KeyState::Pressed) quit = true;
@@ -50,21 +40,31 @@ int main(int argc, char** argv)
 		// -- orge rotation -- 
 
 		// -- light rotation --
-		//auto actor = scene->GetActorFromName("Light");
-		//if (actor)
-		//{
-		//	// move light using sin wave
-		//	actor->m_transform.position.x = std::sin(wrap::g_time.time);
-		//}
+		auto actor = scene->GetActorFromName("Light");
+		if (actor)
+		{
+			// move light using sin wave
+			actor->m_transform.position = pos;
+			//actor->m_transform.position.x = std::sin(wrap::g_time.time);
+		}
 		// -- light rotation --
+
+
+		ImGui::Begin("Hello");
+		ImGui::Button("Press Me!");
+		//ImGui::
+		ImGui::SliderFloat3("X", &pos[0], -5.0f, 5.0f);
+		ImGui::End();
 
 		scene->Update();
 
 		wrap::g_renderer.BeginFrame();
 
 		scene->Draw(wrap::g_renderer);
+		wrap::g_gui.Draw();
 
 		wrap::g_renderer.EndFrame();
+		wrap::g_gui.EndFrame();
 	}
 	scene->RemoveAll();
 	wrap::Engine::Instance().Shutdown();
