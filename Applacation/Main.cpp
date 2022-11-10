@@ -50,12 +50,12 @@ int main(int argc, char** argv)
 		// -- orge rotation -- 
 
 		// -- light rotation --
-		auto actor = scene->GetActorFromName("Light");
-		if (actor)
-		{
-			// move light using sin wave
-			actor->m_transform.position.x = std::sin(wrap::g_time.time);
-		}
+		//auto actor = scene->GetActorFromName("Light");
+		//if (actor)
+		//{
+		//	// move light using sin wave
+		//	actor->m_transform.position.x = std::sin(wrap::g_time.time);
+		//}
 		// -- light rotation --
 
 		scene->Update();

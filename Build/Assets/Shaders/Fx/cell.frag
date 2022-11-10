@@ -36,11 +36,11 @@ void toon(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out ve
 {
 	// direction vector to light
 	// calculate light direction (unit vector)
-	vec3 light_dir = (light.type == DIRECTIONAL) ? normalize(-light.direction) : normalize(vec3(light.position) - position);
+	vec3 light_dir = (light.type == 1) ? normalize(-light.direction) : normalize(vec3(light.position) - position);
  
 	// if spotlight, compute intensity based on angle to cutoff
 	float spot_intensity = 1;
-	if (light.type == SPOTLIGHT)
+	if (light.type == 2)
 	{
 		// get cosine of light direction and direction vector from light
 		float cosine = dot(light.direction, -light_dir);
@@ -49,6 +49,7 @@ void toon(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out ve
  
 		// if inside of cutoff, set spot intensity
 		spot_intensity = (angle < light.cutoff) ? pow(cosine, light.exponent) : 0;
+		//spot_intensity = 0;
 	}
  
 	// AMBIENT

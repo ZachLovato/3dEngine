@@ -10,9 +10,9 @@
           0
         ],
         "scale": [
-          1,
-          1,
-          1
+          0.5,
+          0.5,
+          0.5
         ],
         "rotation": [
           0,
@@ -23,7 +23,7 @@
       "components": [
         {
           "type": "ModelComponent",
-          "model_name": "Models/ogre.obj",
+          "model_name": "Models/wolf.glb",
           "material_name": "Materials/ogre.mtrl"
         }
       ]
@@ -34,7 +34,7 @@
       "transform": {
         "position": [
           -1,
-          1,
+          5,
           1
 
         ],
@@ -52,7 +52,7 @@
             1,
             1
           ],
-          "type_name": "directional",
+          "type_name": "spot",
           "cutoff": 45.0,
           "exponent": 1.0
         }

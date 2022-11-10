@@ -1,13 +1,13 @@
 {
-  "program": "shaders/lit/texture.prog",
+  "program": "shaders/lit/normal.prog",
   "textures": [
-    "textures/lava.png", 
-    "textures/ogre_normal.bmp"
+    "textures/lava.png",
+    "textures/lava.png"
   ],
   "color": [
-    0,
-    0.4,
-    0
+    1,
+    1,
+    1
   ],
   "shininess": 256
 } 
