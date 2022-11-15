@@ -9,6 +9,7 @@ namespace wrap
 	ResourceManager g_resources;
 	PhysicsSystem g_physicsSystem;
 	EventManager g_eventManager;
+	GUI g_gui;
 
 	void Engine::Initialize()
 	{

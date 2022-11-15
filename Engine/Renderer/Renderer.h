@@ -27,7 +27,7 @@ namespace wrap
 		void CreateWindow(const char* name, int width, int height, bool fullscreen = false);
 		void BeginFrame();
 		void EndFrame();
-		void SetClearColor(const Color& color) { m_clearColor = color; }
+		//void SetClearColor(const Color& color) { m_clearColor = color; }
 
 		void DrawLine(float x1, float y1, float x2, float y2);
 		void DrawLine(const Vector2& v1, const Vector2& v2, const Color& color);
@@ -47,6 +47,9 @@ namespace wrap
 		const glm::mat4& GetProjection() { return m_projection; }
 		void SetProjection(const glm::mat4& projection) { m_projection = projection; }
 
+		glm::vec3 clear_color{ 0, 0, 0 };
+		glm::vec3 ambient_color{ 0, 0, 0 };
+
 		friend class Text;
 		friend class Texture;
 		friend class GUI;
@@ -54,8 +57,6 @@ namespace wrap
 	private:
 		int m_width = 0;
 		int m_height = 0;
-
-		Color m_clearColor{ 0, 0, 0, 255 };
 
 		glm::mat4 m_view{ 1 };
 		glm::mat4 m_projection{ 1 };

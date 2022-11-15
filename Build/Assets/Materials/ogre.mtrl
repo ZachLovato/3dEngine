@@ -1,5 +1,5 @@
 {
-  "program": "shaders/lit/normal.prog",
+  "program": "shaders/lit/texture.prog",
   "textures": [
     "textures/lava.png",
     "textures/lava.png"

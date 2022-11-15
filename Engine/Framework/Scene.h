@@ -21,9 +21,10 @@ namespace wrap
 
 		CLASS_DECLARATION(Scene)
 
-			void Initialize() override;
+		void Initialize() override;
 		void Update() override;
-		void Draw(Renderer& renderer);
+		void PreRender(Renderer& renderer);
+		void Render(Renderer& renderer);
 
 		virtual bool Create(std::string filename, ...) override;
 

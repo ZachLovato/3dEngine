@@ -6,6 +6,7 @@
 
 
 #define READ_DATA(value, data) wrap::json::Get(value, #data, data)
+#define READ_NAME_DATA(value, name, data) wrap::json::Get(value, name, data) 
 
 namespace wrap
 {

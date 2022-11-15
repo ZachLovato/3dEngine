@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 	while (!quit)
 	{
 		wrap::Engine::Instance().Update();
-		//wrap::g_gui.BeginFrame(wrap::g_renderer);
+		wrap::g_gui.BeginFrame(wrap::g_renderer);
 
 
 		if (wrap::g_inputSystem.GetKeyState(wrap::key_escape) == wrap::InputSystem::KeyState::Pressed) quit = true;
@@ -50,17 +50,18 @@ int main(int argc, char** argv)
 		// -- light rotation --
 
 
-		//ImGui::Begin("Hello");
-		//ImGui::Button("Press Me!");
+		ImGui::Begin("Hello");
+		ImGui::Button("Press Me!");
 		//ImGui::
-		//ImGui::SliderFloat3("X", &pos[0], -5.0f, 5.0f);
-		//ImGui::End();
+		ImGui::SliderFloat3("X", &pos[0], -5.0f, 5.0f);
+		ImGui::End();
 
 		scene->Update();
 
 		wrap::g_renderer.BeginFrame();
 
-		scene->Draw(wrap::g_renderer);
+		scene->Render(wrap::g_renderer);
+		scene->PreRender(wrap::g_renderer);
 		wrap::g_gui.Draw();
 
 		wrap::g_renderer.EndFrame();
