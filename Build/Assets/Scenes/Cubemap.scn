@@ -9,7 +9,36 @@
         {
           "type": "ModelComponent",
           "model_name": "Models/cube.obj",
-          "material_name": "Materials/skybox.mtrl"
+          "material_name": "Materials/skybox.mtrl",
+          "depth_test":  false
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "Wolf",
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.15,
+          0.15,
+          0.15
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/wolf.glb",
+          "material_name": "Materials/ogre.mtrl"
         }
       ]
     },
