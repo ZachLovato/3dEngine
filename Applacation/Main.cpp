@@ -17,7 +17,7 @@ int main(int argc, char** argv)
 	LOG("Window Initialized...");
 	wrap::g_gui.Initialize(wrap::g_renderer);
 
-	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/texture.scn");
+	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/Cubemap.scn");
 	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/exScene.scn");
 
 

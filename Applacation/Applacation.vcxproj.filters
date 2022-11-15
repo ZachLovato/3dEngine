@@ -140,5 +140,11 @@
     <None Include="..\Build\Assets\Shaders\Fx\cell.vert">
       <Filter>Resource Files\Shaders\Fx</Filter>
     </None>
+    <None Include="..\Build\Assets\Scenes\Cubemap.scn">
+      <Filter>Resource Files\Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\skybox.mtrl">
+      <Filter>Resource Files\Mats</Filter>
+    </None>
   </ItemGroup>
 </Project>

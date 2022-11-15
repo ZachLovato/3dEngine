@@ -21,6 +21,16 @@ namespace wrap
 		// get program resource 
 		m_program = wrap::g_resources.Get<wrap::Program>(program);
 
+		// read cube map
+		std::string cubemap;
+		READ_DATA(document, cubemap);
+		if (!cubemap.empty())
+		{
+			std::string cubemap_extension;
+			READ_DATA(document, cubemap_extension);
+			m_textures.push_back(wrap::g_resources.Get<wrap::CubemapTexture>(cubemap, cubemap_extension));
+		}
+
 		// read the texture name 
 		std::vector<std::string> textures;
 		READ_DATA(document, textures);
