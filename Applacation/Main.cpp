@@ -62,6 +62,7 @@ int main(int argc, char** argv)
 
 		scene->Render(wrap::g_renderer);
 		scene->PreRender(wrap::g_renderer);
+
 		wrap::g_gui.Draw();
 
 		wrap::g_renderer.EndFrame();

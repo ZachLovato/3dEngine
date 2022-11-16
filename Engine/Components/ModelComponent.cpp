@@ -10,7 +10,7 @@ namespace wrap
 	void ModelComponent::Draw(Renderer& renderer)
 	{
 		material->Bind();
-		// set model view projection matrix for model 
+		// set the model matrix (transform to world space) 
 		material->GetProgram()->SetUniform("model", (glm::mat4)m_owner->m_transform);
 
 		glDepthMask(depth_test);

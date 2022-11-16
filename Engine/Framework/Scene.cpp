@@ -34,16 +34,15 @@ namespace wrap
 		CameraComponent* camera = nullptr;
 		for (auto& actor : m_actors)
 		{
-			//< if actor is active is false, continue; (skips rest of for code) >
-			if (!actor->active) continue;
+			if (actor->IsActive() == false) continue;
 
 			auto component = actor->GetComponent<CameraComponent>();
-			if (component == NULL)
+			if (component != NULL)
 			{
-				//<set camera to component>
-				//<break out of for loop>
+				//<set camera to component> 
 				camera = component;
 				break;
+
 			}
 		}
 
@@ -51,13 +50,11 @@ namespace wrap
 		std::vector<LightComponent*> lights;
 		for (auto& actor : m_actors)
 		{
-//			< if actor is active is false, continue; (skips rest of for code) >
-			if (!actor->active) continue;
+			if (actor->IsActive() == false) continue;
 
 			auto component = actor->GetComponent<LightComponent>();
-			if (component == NULL)
+			if (component != NULL)
 			{
-				//<add(push back) component to lights vector>
 				lights.push_back(component);
 			}
 		}

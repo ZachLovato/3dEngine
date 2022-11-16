@@ -167,6 +167,9 @@
     <None Include="..\Build\Assets\Shaders\Fx\cell.frag" />
     <None Include="..\Build\Assets\Shaders\Fx\cell.prog" />
     <None Include="..\Build\Assets\Shaders\Fx\cell.vert" />
+    <None Include="..\Build\Assets\Shaders\Fx\skybox.frag" />
+    <None Include="..\Build\Assets\Shaders\Fx\skybox.prog" />
+    <None Include="..\Build\Assets\Shaders\Fx\skybox.vert" />
     <None Include="..\Build\Assets\Shaders\Lit\normal.frag" />
     <None Include="..\Build\Assets\Shaders\Lit\normal.prog" />
     <None Include="..\Build\Assets\Shaders\Lit\normal.vert" />

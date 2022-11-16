@@ -146,5 +146,14 @@
     <None Include="..\Build\Assets\Materials\skybox.mtrl">
       <Filter>Resource Files\Mats</Filter>
     </None>
+    <None Include="..\Build\Assets\Shaders\Fx\skybox.frag">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Fx\skybox.prog">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Fx\skybox.vert">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
   </ItemGroup>
 </Project>
