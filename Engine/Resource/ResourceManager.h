@@ -48,6 +48,7 @@ namespace wrap
 
 			return resource;
 		}
+		return NULL;
 	}
 
 	template <typename T>

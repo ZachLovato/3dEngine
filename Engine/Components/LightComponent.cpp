@@ -49,11 +49,10 @@ namespace wrap
 
 		programs->Use();
 		programs->SetUniform(lightName + ".type", (int)type);
-		//<set the rest of the light uniforms, do not set ambient>=
 		programs->SetUniform(lightName + "color", color);
 		programs->SetUniform(lightName + "position", position);
 		programs->SetUniform(lightName + "direction", direction);
-		programs->SetUniform(lightName + "cutoff", glm::radians(cutoff));
+		programs->SetUniform(lightName + "cutoff", direction);
 		programs->SetUniform(lightName + "exponent", exponent);
 
 		/*
