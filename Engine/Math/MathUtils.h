@@ -78,5 +78,10 @@ namespace math
 		
 		return value;
 	}
+
+	glm::vec3 QuaternionToEuler(glm::quat q);
+	glm::quat EulerToQuaternion(glm::vec3 euler);
+
+
 }
 

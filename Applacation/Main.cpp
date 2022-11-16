@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/exScene.scn");
 
 
-	glm::vec3 pos(0,0,0);
+	glm::vec3 rot(0,0,0);
 	bool quit = false;
 	while (!quit)
 	{
@@ -32,28 +32,26 @@ int main(int argc, char** argv)
 		if (wrap::g_inputSystem.GetKeyState(wrap::key_escape) == wrap::InputSystem::KeyState::Pressed) quit = true;
 
 		// -- orge rotation -- 
-		//auto actor = scene->GetActorFromName("Ogre");
-		//if (actor)
-		//{
-		//	actor->m_transform.rotation.y += wrap::g_time.deltaTime * 90.0f;
-		//}
+		auto actor = scene->GetActorFromName("Camera");
+		if (actor)
+		{
+			actor->m_transform.rotation = math::EulerToQuaternion(rot);
+		}
 		// -- orge rotation -- 
 
 		// -- light rotation --
-		auto actor = scene->GetActorFromName("Light");
-		if (actor)
-		{
+		//auto actor = scene->GetActorFromName("Light1");
+		//if (actor)
+		//{
 			// move light using sin wave
-			actor->m_transform.position = pos;
+			//actor->m_transform.position = pos;
 			//actor->m_transform.position.x = std::sin(wrap::g_time.time);
-		}
+		//}
 		// -- light rotation --
 
 
-		ImGui::Begin("Hello");
-		ImGui::Button("Press Me!");
-		//ImGui::
-		ImGui::SliderFloat3("X", &pos[0], -5.0f, 5.0f);
+		ImGui::Begin("Transform");
+		ImGui::SliderFloat3("Rotation", &rot[0], -360.0f, 360.0f);
 		ImGui::End();
 
 		scene->Update();
