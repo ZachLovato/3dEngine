@@ -24,7 +24,6 @@ namespace wrap
 
 		std::vector<std::string> filenames = GenerateCubeMapNames(filename, extension);
 
-
 		// create textures (returns true/false if successful)
 		return Load(filenames);
 	}

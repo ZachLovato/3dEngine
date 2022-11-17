@@ -155,5 +155,8 @@
     <None Include="..\Build\Assets\Shaders\Fx\skybox.vert">
       <Filter>Resource Files\Shaders\Fx</Filter>
     </None>
+    <None Include="..\Build\Assets\Scenes\multiLit.scn">
+      <Filter>Resource Files\Scenes</Filter>
+    </None>
   </ItemGroup>
 </Project>

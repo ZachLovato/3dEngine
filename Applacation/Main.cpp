@@ -18,7 +18,7 @@ int main(int argc, char** argv)
 	wrap::g_gui.Initialize(wrap::g_renderer);
 
 	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/Cubemap.scn");
-	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/exScene.scn");
+	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/multiLit.scn");
 
 
 	glm::vec3 rot(0,0,0);
@@ -36,6 +36,14 @@ int main(int argc, char** argv)
 		if (actor)
 		{
 			actor->m_transform.rotation = math::EulerToQuaternion(rot);
+		}
+		actor = scene->GetActorFromName("box");
+		if (actor)
+		{
+			//std::cout << actor->m_transform.position.x << std::endl;
+			//std::cout << actor->m_transform.position.y << std::endl;
+			//std::cout << actor->m_transform.position.z << std::endl;
+
 		}
 		// -- orge rotation -- 
 

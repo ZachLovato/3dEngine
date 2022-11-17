@@ -153,6 +153,7 @@
     <None Include="..\Build\Assets\Scenes\basic_lit.scn" />
     <None Include="..\Build\Assets\Scenes\Cubemap.scn" />
     <None Include="..\Build\Assets\Scenes\exScene.scn" />
+    <None Include="..\Build\Assets\Scenes\multiLit.scn" />
     <None Include="..\Build\Assets\Scenes\Test.scn" />
     <None Include="..\Build\Assets\Scenes\texture.scn" />
     <None Include="..\Build\Assets\Shaders\basic.frag" />

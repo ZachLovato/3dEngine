@@ -1,6 +1,6 @@
 {
-  "program": "shaders/fx/cell.prog",
-  "texture": "Texture/spot.png",
+  "program": "shaders/lit/texture.prog",
+  "texture": "Texture/lava.png",
   "ambient": [
     1,
     1,

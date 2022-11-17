@@ -66,20 +66,6 @@ void toon(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out ve
  
 	// SPECULAR
 	specular = vec3(0);
-//	if (intensity > 0)
-//	{
-//		// calculate reflection vector 
-//		// light direction reflected around normal vector [ \|/ ]
-//		vec3 reflection = reflect(-light_dir, normal);
-//		// create direction vector from eye (origin) to vertex position
-//		vec3 view_dir = normalize(-vec3(position));
-//		// calculate light intensity with dot production (reflection * view direction)
-//		intensity = max(dot(reflection, view_dir), 0);
-//		
-//		intensity = pow(intensity, material.shininess);
-//		// calculate specular color
-//		specular = light.color * material.color * intensity;
-//	}
 }
  
 void main()
@@ -93,4 +79,5 @@ void main()
 	vec2 ttexcoord = (texcoord * material.uv_tiling) + material.uv_offset;
  
 	fcolor = vec4(ambient + diffuse, 1) + vec4(specular, 1);
+	//fcolor = vec4(1,.5,.5,1);
 }
