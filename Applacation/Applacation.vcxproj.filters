@@ -158,5 +158,29 @@
     <None Include="..\Build\Assets\Scenes\multiLit.scn">
       <Filter>Resource Files\Scenes</Filter>
     </None>
+    <None Include="..\Build\Assets\Shaders\Fx\reflection.frag">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Fx\reflection.prog">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Fx\reflection.vert">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\reflection.mtrl">
+      <Filter>Resource Files\Mats</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Fx\refraction.frag">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Fx\refraction.prog">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Fx\refraction.vert">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\refraction.mtrl">
+      <Filter>Resource Files\Mats</Filter>
+    </None>
   </ItemGroup>
 </Project>

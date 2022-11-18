@@ -38,8 +38,7 @@
         {
           "type": "ModelComponent",
           "model_name": "Models/cube.obj",
-          "material_name": "Materials/box.mtrl",
-          "depth_test": false
+          "material_name": "Materials/refraction.mtrl"
         }
       ]
     },
@@ -121,7 +120,8 @@
         },
         {
           "type": "CameraController",
-          "speed": 4
+          "speed": 4,
+          "sensitivity": 0.2
         }
       ]
     }
