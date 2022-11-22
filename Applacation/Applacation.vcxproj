@@ -149,6 +149,7 @@
     <None Include="..\Build\Assets\Materials\ogre.mtrl" />
     <None Include="..\Build\Assets\Materials\plane.mtrl" />
     <None Include="..\Build\Assets\Materials\reflection.mtrl" />
+    <None Include="..\Build\Assets\Materials\reflect_refract.mtrl" />
     <None Include="..\Build\Assets\Materials\refraction.mtrl" />
     <None Include="..\Build\Assets\Materials\skybox.mtrl" />
     <None Include="..\Build\Assets\Scenes\basic.scn" />
@@ -173,6 +174,9 @@
     <None Include="..\Build\Assets\Shaders\Fx\reflection.frag" />
     <None Include="..\Build\Assets\Shaders\Fx\reflection.prog" />
     <None Include="..\Build\Assets\Shaders\Fx\reflection.vert" />
+    <None Include="..\Build\Assets\Shaders\Fx\reflect_refract.frag" />
+    <None Include="..\Build\Assets\Shaders\Fx\reflect_refract.prog" />
+    <None Include="..\Build\Assets\Shaders\Fx\reflect_refract.vert" />
     <None Include="..\Build\Assets\Shaders\Fx\refraction.frag" />
     <None Include="..\Build\Assets\Shaders\Fx\refraction.prog" />
     <None Include="..\Build\Assets\Shaders\Fx\refraction.vert" />

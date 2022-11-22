@@ -182,5 +182,17 @@
     <None Include="..\Build\Assets\Materials\refraction.mtrl">
       <Filter>Resource Files\Mats</Filter>
     </None>
+    <None Include="..\Build\Assets\Shaders\Fx\reflect_refract.frag">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Fx\reflect_refract.prog">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\Fx\reflect_refract.vert">
+      <Filter>Resource Files\Shaders\Fx</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\reflect_refract.mtrl">
+      <Filter>Resource Files\Mats</Filter>
+    </None>
   </ItemGroup>
 </Project>

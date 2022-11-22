@@ -23,6 +23,7 @@ int main(int argc, char** argv)
 
 	glm::vec3 rot(0,0,0);
 	float ri = 1;
+	float ip = 1;
 	bool quit = false;
 	while (!quit)
 	{
@@ -58,17 +59,27 @@ int main(int argc, char** argv)
 		//}
 		// -- light rotation --
 
-		auto program = wrap::g_resources.Get<wrap::Program>("shaders/fx/refraction.prog");
+		/*auto program = wrap::g_resources.Get<wrap::Program>("shaders/fx/refraction.prog");
 		if (program)
 		{
 			program->Use();
 			program->SetUniform("ri", ri);
+		}*/
+
+		auto program = wrap::g_resources.Get<wrap::Program>("shaders/fx/reflect_refract.prog");
+		if (program)
+		{
+			program->Use();
+			program->SetUniform("ip", ip);
+			program->SetUniform("ri", ri);
 		}
 
 		ImGui::Begin("Transform");
-		//ImGui::SliderFloat3("Rotation", &rot[0], -360.0f, 360.0f);
-		ImGui::DragFloat3("Rotation", &rot[0]);
-		ImGui::DragFloat("Refraction index", &ri, 0.01f, 0, 1.5);
+		ImGui::SliderFloat3("Rotation", &rot[0], -360.0f, 360.0f);
+		//ImGui::DragFloat3("Rotation", &rot[0]);
+		//ImGui::DragFloat("Refraction index", &ri, 0.01f, 0, 1.5);
+		ImGui::DragFloat("Interpolation", &ip, 0.01f, 0, 1.5);
+		ImGui::DragFloat("RI", &ri, 0.01f, 0, 1.5);
 		ImGui::End();
 
 		scene->Update();
