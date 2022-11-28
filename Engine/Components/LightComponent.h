@@ -3,6 +3,7 @@
 
 namespace wrap
 {
+	class Program;
 	class LightComponent : public Component
 	{
 	public:
