@@ -10,7 +10,7 @@ bool wrap::Transform::Read(const rapidjson::Value& value)
     READ_DATA(value, position);
     READ_DATA(value, scale);
 
-    glm::vec3 eular;
+    glm::vec3 eular{ 0 };
     READ_NAME_DATA(value, "rotation", eular);
     rotation = math::EulerToQuaternion(eular);
 

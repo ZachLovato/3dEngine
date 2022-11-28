@@ -17,8 +17,18 @@ int main(int argc, char** argv)
 	LOG("Window Initialized...");
 	wrap::g_gui.Initialize(wrap::g_renderer);
 
-	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/Cubemap.scn");
+	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/rtt.scn");
 	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/multiLit.scn");
+
+	// create framebuffer texture 
+	auto texture = std::make_shared<wrap::Texture>();
+	texture->CreateTexture(512, 512);
+	wrap::g_resources.Add<wrap::Texture>("fb_texture", texture);
+
+	// create framebuffer
+	auto framebuffer = wrap::g_resources.Get<wrap::Framebuffer>("framebuffer", "fb_texture");
+	framebuffer->Unbind();
+
 
 
 	glm::vec3 rot(0,0,0);
@@ -84,10 +94,35 @@ int main(int argc, char** argv)
 
 		scene->Update();
 
-		wrap::g_renderer.BeginFrame();
+		{
+			auto actor = scene->GetActorFromName("rtt");
+			if (actor)
+			{
+				actor->SetActive(false);
+			}
+		}
 
-		scene->Render(wrap::g_renderer);
+		// render pass 1 render to framebuffer
+		glViewport(0, 0, 512, 512);
+		framebuffer->Bind();
+		wrap::g_renderer.BeginFrame();
 		scene->PreRender(wrap::g_renderer);
+		scene->Render(wrap::g_renderer);
+		framebuffer->Unbind();
+
+		{
+			auto actor = scene->GetActorFromName("rtt");
+			if (actor)
+			{
+				actor->SetActive(false);
+			}
+		}
+
+		// render pass 2. render to screen
+		glViewport(0, 0, 800, 600);
+		wrap::g_renderer.BeginFrame();
+		scene->PreRender(wrap::g_renderer);
+		scene->Render(wrap::g_renderer);
 
 		wrap::g_gui.Draw();
 

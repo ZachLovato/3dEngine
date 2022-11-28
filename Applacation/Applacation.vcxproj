@@ -151,12 +151,14 @@
     <None Include="..\Build\Assets\Materials\reflection.mtrl" />
     <None Include="..\Build\Assets\Materials\reflect_refract.mtrl" />
     <None Include="..\Build\Assets\Materials\refraction.mtrl" />
+    <None Include="..\Build\Assets\Materials\rtt.mtrl" />
     <None Include="..\Build\Assets\Materials\skybox.mtrl" />
     <None Include="..\Build\Assets\Scenes\basic.scn" />
     <None Include="..\Build\Assets\Scenes\basic_lit.scn" />
     <None Include="..\Build\Assets\Scenes\Cubemap.scn" />
     <None Include="..\Build\Assets\Scenes\exScene.scn" />
     <None Include="..\Build\Assets\Scenes\multiLit.scn" />
+    <None Include="..\Build\Assets\Scenes\rtt.scn" />
     <None Include="..\Build\Assets\Scenes\Test.scn" />
     <None Include="..\Build\Assets\Scenes\texture.scn" />
     <None Include="..\Build\Assets\Shaders\basic.frag" />

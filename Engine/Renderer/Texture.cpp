@@ -27,6 +27,46 @@ namespace wrap
         return Load(filename);
     }
 
+    bool Texture::CreateTexture(int width, int height)
+    {
+        m_target = GL_TEXTURE_2D;
+        m_width = width;
+        m_height = height;
+
+        glGenTextures(1, &m_texture);
+        glBindTexture(m_target, m_texture);
+
+        // create texture (width, height)
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+
+        glTexParameteri(m_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(m_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(m_target, GL_TEXTURE_WRAP_S, GL_CLAMP);
+        glTexParameteri(m_target, GL_TEXTURE_WRAP_T, GL_CLAMP);
+
+        return true;
+    }
+
+    bool Texture::CreateDepthTexture(int width, int height)
+    {
+        m_target = GL_TEXTURE_2D;
+        m_width = width;
+        m_height = height;
+
+        glGenTextures(1, &m_texture);
+        glBindTexture(m_target, m_texture);
+
+        // create texture (width, height)
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, width, height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+
+        glTexParameteri(m_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(m_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(m_target, GL_TEXTURE_WRAP_S, GL_CLAMP);
+        glTexParameteri(m_target, GL_TEXTURE_WRAP_T, GL_CLAMP);
+
+        return true;
+    }
+
     bool Texture::CreateFromSurface(SDL_Surface* surface, Renderer& renderer)
     {
         return true;
@@ -42,7 +82,7 @@ namespace wrap
             LOG(SDL_GetError());
             return false;
         }
-        //FlipSurface(surface);
+        FlipSurface(surface);
 
         // create texture 
         glGenTextures(1, &m_texture);
@@ -63,9 +103,9 @@ namespace wrap
         return true;
     }
 
-    wrap::Vector2 Texture::GetSize() const
+    glm::ivec2 Texture::GetSize() const
     {
-        return Vector2{ 0, 0 };
+        return glm::ivec2{ m_width, m_height };
     }
 
     GLenum Texture::GetInternalFormat(GLuint format)

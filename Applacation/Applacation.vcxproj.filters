@@ -194,5 +194,11 @@
     <None Include="..\Build\Assets\Materials\reflect_refract.mtrl">
       <Filter>Resource Files\Mats</Filter>
     </None>
+    <None Include="..\Build\Assets\Scenes\rtt.scn">
+      <Filter>Resource Files\Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\rtt.mtrl">
+      <Filter>Resource Files\Mats</Filter>
+    </None>
   </ItemGroup>
 </Project>
