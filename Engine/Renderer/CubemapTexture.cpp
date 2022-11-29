@@ -1,6 +1,6 @@
-#include "CubemapTexture.h"
-#include "Renderer.h" 
+#include "CubeMapTexture.h"
 #include "Core/Logger.h" 
+#include "Renderer/texture.h"
 #include <SDL.h> 
 #include <SDL_image.h> 
 #include <cstdarg> 
@@ -24,11 +24,11 @@ namespace wrap
 
 		std::vector<std::string> filenames = GenerateCubeMapNames(filename, extension);
 
+
 		// create textures (returns true/false if successful)
 		return Load(filenames);
 	}
-
-	bool CubemapTexture::Load(const std::vector<std::string>& filenames)
+	bool CubemapTexture::Load(const std::vector<std::string>& filename)
 	{
 		m_target = GL_TEXTURE_CUBE_MAP;
 
@@ -45,16 +45,16 @@ namespace wrap
 			GL_TEXTURE_CUBE_MAP_NEGATIVE_Z
 		};
 
-		for (size_t i = 0; i < filenames.size(); i++)
+		for (size_t i = 0; i < filename.size(); i++)
 		{
-			SDL_Surface* surface = IMG_Load(filenames[i].c_str());
+			SDL_Surface* surface = IMG_Load(filename[i].c_str());
 			if (surface == nullptr)
 			{
 				LOG(SDL_GetError());
 				return false;
 			}
 
-			LOG("%s : width = %d | height = %d | pixel format = %s", filenames[i].c_str(), surface->w, surface->h, SDL_GetPixelFormatName(surface->format->format));
+			LOG("%s : width = %d | height = %d | pixel format = %s", filename[i].c_str(), surface->w, surface->h, SDL_GetPixelFormatName(surface->format->format));
 
 			GLenum internalFormat = GetInternalFormat(surface->format->format);
 			GLint format = (surface->format->BytesPerPixel == 4) ? GL_RGBA : GL_RGB;
@@ -86,5 +86,29 @@ namespace wrap
 		return names;
 	}
 
+	GLenum CubemapTexture::GetInternalFormat(GLuint format)
+	{
+		GLenum internalFormat = SDL_PIXELFORMAT_UNKNOWN;
+		switch (format)
+		{
+		case SDL_PIXELFORMAT_RGB888:
+		case SDL_PIXELFORMAT_RGB24:
+			internalFormat = GL_RGB;
+			break;
+		case SDL_PIXELFORMAT_BGR888:
+		case SDL_PIXELFORMAT_BGR24:
+			internalFormat = GL_BGR;
+			break;
+		case SDL_PIXELFORMAT_RGBA8888:
+		case SDL_PIXELFORMAT_RGBA32:
+			internalFormat = GL_RGBA;
+			break;
+		case SDL_PIXELFORMAT_BGRA8888:
+		case SDL_PIXELFORMAT_BGRA32:
+			internalFormat = GL_BGRA;
+			break;
+		}
 
+		return internalFormat;
+	}
 }

@@ -19,9 +19,8 @@ void main()
 
 	vec3 camera_pos = vec3(inverse(view)[3]);
 	vec3 view_dir = normalize(position - camera_pos);
-	refraction_dir = refract(view_dir, normal, ri);
-	reflection_dir = reflect(view_dir, normal);
+	reflection_dir = refract(view_dir, normal, 1/ ri);
 
-	mat4 mvp = projection * view * model;
+	mat4 mvp = projection * model;
 	gl_Position = mvp * vec4(vposition, 1.0);
 }

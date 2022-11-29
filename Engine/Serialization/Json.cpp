@@ -174,7 +174,7 @@ namespace wrap::json
 		// create json array object
 		auto& array = value[name.c_str()];
 		// get array values
-		
+
 		data.x = array[0].GetInt();
 		data.y = array[1].GetInt();
 		data.w = array[2].GetInt();
@@ -267,6 +267,7 @@ namespace wrap::json
 
 		return true;
 	}
+
 
 	bool Get(const rapidjson::Value& value, const std::string& name, glm::vec3& data)
 	{

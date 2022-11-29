@@ -37,7 +37,6 @@ namespace wrap
 		for (auto texture : textures)
 		{
 			// get texture resource 
-
 			m_textures.push_back(wrap::g_resources.Get<wrap::Texture>(texture));
 		}
 

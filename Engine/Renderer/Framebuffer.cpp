@@ -1,4 +1,4 @@
-#include "Framebuffer.h"
+#include "FrameBuffer.h"
 #include "Engine.h"
 
 namespace wrap
@@ -35,7 +35,7 @@ namespace wrap
 		glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
 
 		// create the depth buffer (bind)
-		CreateDepthbuffer(m_texture->m_width, m_texture->m_height);
+		CreateDepthbuffer(m_texture->GetSize().x, m_texture->GetSize().y);
 
 		// bind the texture to the FBO
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_texture->m_texture, 0);

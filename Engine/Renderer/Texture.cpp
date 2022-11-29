@@ -27,6 +27,11 @@ namespace wrap
         return Load(filename);
     }
 
+    bool Texture::CreateFromSurface(SDL_Surface* surface, Renderer& renderer)
+    {
+        return true;
+    }
+
     bool Texture::CreateTexture(int width, int height)
     {
         m_target = GL_TEXTURE_2D;
@@ -67,11 +72,6 @@ namespace wrap
         return true;
     }
 
-    bool Texture::CreateFromSurface(SDL_Surface* surface, Renderer& renderer)
-    {
-        return true;
-    }
-
     bool Texture::Load(const std::string& filename)
     {
         // load surface 
@@ -96,6 +96,8 @@ namespace wrap
         glTexParameteri(m_target, GL_TEXTURE_WRAP_S, GL_REPEAT); //GL_REPEAT
         glTexParameteri(m_target, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
+
+
         // !! call SDL_FreeSurface with surface as the parameter 
         // !! no need to keep surface after texture is created 
         SDL_FreeSurface(surface);
@@ -103,35 +105,9 @@ namespace wrap
         return true;
     }
 
-    glm::ivec2 Texture::GetSize() const
+    glm::vec2 Texture::GetSize() const
     {
-        return glm::ivec2{ m_width, m_height };
-    }
-
-    GLenum Texture::GetInternalFormat(GLuint format)
-    {
-        GLenum internalFormat = SDL_PIXELFORMAT_UNKNOWN;
-        switch (format)
-        {
-        case SDL_PIXELFORMAT_RGB888:
-        case SDL_PIXELFORMAT_RGB24:
-            internalFormat = GL_RGB;
-            break;
-        case SDL_PIXELFORMAT_BGR888:
-        case SDL_PIXELFORMAT_BGR24:
-            internalFormat = GL_BGR;
-            break;
-        case SDL_PIXELFORMAT_RGBA8888:
-        case SDL_PIXELFORMAT_RGBA32:
-            internalFormat = GL_RGBA;
-            break;
-        case SDL_PIXELFORMAT_BGRA8888:
-        case SDL_PIXELFORMAT_BGRA32:
-            internalFormat = GL_BGRA;
-            break;
-        }
-
-        return internalFormat;
+        return glm::vec2{ m_width, m_height };
     }
 
     void Texture::FlipSurface(SDL_Surface* surface)
@@ -157,4 +133,7 @@ namespace wrap
 
         SDL_UnlockSurface(surface);
     }
+
+
+
 }

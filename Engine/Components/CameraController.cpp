@@ -33,12 +33,12 @@ namespace wrap
 
 		glm::vec3 direction{ 0 };
 
-		if (g_inputSystem.GetKeyState(key_left) == InputSystem::KeyState::Held)		direction.x += 1;
-		if (g_inputSystem.GetKeyState(key_right) == InputSystem::KeyState::Held)	direction.x -= 1;
-		if (g_inputSystem.GetKeyState(key_up) == InputSystem::KeyState::Held)		direction.y += 1;
-		if (g_inputSystem.GetKeyState(key_down) == InputSystem::KeyState::Held)		direction.y -= 1;
-		if (g_inputSystem.GetKeyState(key_w) == InputSystem::KeyState::Held)	direction.z += 1;
-		if (g_inputSystem.GetKeyState(key_s) == InputSystem::KeyState::Held)	direction.z -= 1;
+		if (g_inputSystem.GetKeyState(key_left) == InputSystem::KeyState::Held) direction.x += 1;
+		if (g_inputSystem.GetKeyState(key_right) == InputSystem::KeyState::Held) direction.x -= 1;
+		if (g_inputSystem.GetKeyState(key_up) == InputSystem::KeyState::Held) direction.y += 1;
+		if (g_inputSystem.GetKeyState(key_down) == InputSystem::KeyState::Held)	direction.y -= 1;
+		if (g_inputSystem.GetKeyState(key_w) == InputSystem::KeyState::Held) direction.z += 1;
+		if (g_inputSystem.GetKeyState(key_s) == InputSystem::KeyState::Held) direction.z -= 1;
 
 		// convert world direction space to camera direction space
 		direction = m_owner->m_transform.rotation * direction;

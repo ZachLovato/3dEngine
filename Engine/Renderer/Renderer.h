@@ -1,10 +1,10 @@
 #pragma once
-#include <SDL.h>
-#include <glad/glad.h>
 #include "Math/MathUtils.h"
 #include "Math/Vector2.h"
 #include "Math/Color.h"
 #include "Math/Matrix3x3.h"
+#include <SDL.h>
+#include <glad/glad.h>
 
 struct SDL_Renderer;
 struct SDL_Window;

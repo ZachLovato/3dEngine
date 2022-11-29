@@ -1,15 +1,16 @@
 #version 430 core
-
-#define POINT		0
+ 
+ #define POINT		0
 #define DIRECTIONAL	1
 #define SPOTLIGHT	2
- 
+
 in vec3 position;
 in vec2 texcoord;
 in mat3 tbn;
  
 out vec4 fcolor;
 
+ 
 uniform struct Light
 {
 	int type; 
@@ -31,10 +32,11 @@ uniform struct Material
 
 layout (binding = 0) uniform sampler2D diffuseMap; //diffuse map
 layout (binding = 1) uniform sampler2D normalMap; //specular map
+layout (binding = 2) uniform sampler2D emissiveMap; //emissive map
 
 void phong(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out vec3 specular)
 {
-    // direction vector to light
+	// direction vector to light
 	// calculate light direction (unit vector)
 	vec3 light_dir = (light.type == DIRECTIONAL) ? normalize(-light.direction) : normalize(vec3(light.position) - position);
  
@@ -80,26 +82,24 @@ void phong(vec3 position, vec3 normal, out vec3 ambient, out vec3 diffuse, out v
  
 void main()
 {
-    vec2 ttexcoord = (texcoord * material.uv_tiling) +  material.uv_offset;
-    
-    vec3 normal = texture(normalMap, ttexcoord).rgb; // 0 - 1
+    //ambient
+	vec3 ambient;
+	vec3 diffuse;
+	vec3 specular;
+	vec2 ttexcoord = (texcoord * material.uv_tiling) +  material.uv_offset;
 
-    normal = (normal * 2) - 1;// (0 - 1) -> ( -1 - 1)
-
-    normal = normalize(tbn * normal);
+	vec3 normal = texture(normalMap, ttexcoord).rgb; // 0 - 1
 	
-	//ambient
-    vec3 ambient;
-    vec3 diffuse;
-    vec3 specular;
+	normal = (normal * 2) - 1;// (0 - 1) -> ( -1 - 1)
+
+	normal = normalize(tbn * normal);
+
+	phong(position, normal, ambient, diffuse, specular);
 
 
-    phong(position, normal, ambient, diffuse, specular);
+	vec4 texture_Color = texture(diffuseMap, ttexcoord);
 
-
-    vec4 texture_Color = texture(diffuseMap, ttexcoord);
-
-    //fcolor = texture_Color;
-    fcolor = vec4(ambient + diffuse, 1) * texture_Color + vec4(specular, 1);
+	//fcolor = texture_Color;
+	fcolor = vec4(ambient + diffuse, 1) * texture_Color + vec4(specular, 1);
 
 }

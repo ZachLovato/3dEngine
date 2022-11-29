@@ -51,7 +51,7 @@ namespace wrap
 
 			return resource;
 		}
-		return NULL;
+		//return nullptr;																				// remove later/ found out ow to fix
 	}
 
 	template <typename T>
@@ -72,12 +72,10 @@ namespace wrap
 
 		return result;
 	}
-
 	template<typename T>
 	inline void ResourceManager::Add(const std::string& name, std::shared_ptr<T> resource)
 	{
 		std::string lowerName = ToLower(name);
 		m_resources[lowerName] = resource;
 	}
-
 }

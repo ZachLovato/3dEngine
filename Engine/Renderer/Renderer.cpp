@@ -89,19 +89,19 @@ namespace wrap
 
 	void Renderer::Draw(std::shared_ptr<Texture> texture, const Vector2& position, float angle, const Vector2& scale, const Vector2& registration)
 	{
-		//glm::ivec2 size = texture->GetSize();
-		//size = size * scale;
+		/*Vector2 size = texture->GetSize();
+		size = size * scale;
 
-		//glm::ivec2 origin = size * registration;
-		//glm::ivec2 tposition = position - origin;
+		Vector2 origin = size * registration;
+		Vector2 tposition = position - origin;
 
-		//SDL_Rect dest;
-		//dest.x = (int)(tposition.x);
-		///dest.y = (int)(tposition.y);
-		//dest.w = (int)(size.x);
-		//dest.h = (int)(size.y);
+		SDL_Rect dest;
+		dest.x = (int)(tposition.x);
+		dest.y = (int)(tposition.y);
+		dest.w = (int)(size.x);
+		dest.h = (int)(size.y);
 
-		//SDL_Point center{ (int)origin.x, (int)origin.y };
+		SDL_Point center{ (int)origin.x, (int)origin.y };*/
 
 		//SDL_RenderCopyEx(m_renderer, texture->m_texture, nullptr, &dest, angle, &center, SDL_FLIP_NONE);
 	}

@@ -17,7 +17,6 @@ int main(int argc, char** argv)
 	LOG("Window Initialized...");
 	wrap::g_gui.Initialize(wrap::g_renderer);
 
-	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/rtt.scn");
 	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/multiLit.scn");
 
 	// create framebuffer texture 
@@ -29,6 +28,7 @@ int main(int argc, char** argv)
 	auto framebuffer = wrap::g_resources.Get<wrap::Framebuffer>("framebuffer", "fb_texture");
 	framebuffer->Unbind();
 
+	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/rtt.scn");
 
 
 	glm::vec3 rot(0,0,0);
@@ -88,7 +88,7 @@ int main(int argc, char** argv)
 		ImGui::SliderFloat3("Rotation", &rot[0], -360.0f, 360.0f);
 		//ImGui::DragFloat3("Rotation", &rot[0]);
 		//ImGui::DragFloat("Refraction index", &ri, 0.01f, 0, 1.5);
-		ImGui::DragFloat("Interpolation", &ip, 0.01f, 0, 1.5);
+		ImGui::DragFloat("ip", &ip, 0.01f, 0, 1.5);
 		ImGui::DragFloat("RI", &ri, 0.01f, 0, 1.5);
 		ImGui::End();
 

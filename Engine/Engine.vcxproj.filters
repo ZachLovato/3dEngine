@@ -161,9 +161,6 @@
     <ClCompile Include="Components\CharacterComponent.cpp">
       <Filter>Source\Components</Filter>
     </ClCompile>
-    <ClCompile Include="..\ThirdParty\glad\src\glad.c">
-      <Filter>Source\Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="Renderer\Shader.cpp">
       <Filter>Source\Renderer</Filter>
     </ClCompile>
@@ -213,6 +210,9 @@
       <Filter>Source\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Renderer\Framebuffer.cpp">
+      <Filter>Source\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ThirdParty\glad\src\glad.c">
       <Filter>Source\Renderer</Filter>
     </ClCompile>
   </ItemGroup>

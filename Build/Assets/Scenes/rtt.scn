@@ -10,7 +10,7 @@
           "type": "ModelComponent",
           "model_name": "Models/cube.obj",
           "material_name": "Materials/skybox.mtrl",
-          "depth_test": true
+          "depth_test": false
         }
       ]
     },
@@ -37,8 +37,8 @@
       "components": [
         {
           "type": "ModelComponent",
-          "model_name": "Models/sphere.obj",
-          "material_name": "Materials/reflect_refract.mtrl"
+          "model_name": "Models/cube.obj",
+          "material_name": "Materials/multi.mtrl"
         }
       ]
     },

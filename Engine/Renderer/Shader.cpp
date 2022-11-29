@@ -6,12 +6,11 @@ namespace wrap
 {
 	Shader::~Shader()
 	{
-		if(!m_shader)
-		{ 
+		if (m_shader != 0)
+		{
 			glDeleteShader(m_shader);
 		}
 	}
-
 	bool Shader::Create(std::string filename, ...)
 	{
 		// get shader source from file
