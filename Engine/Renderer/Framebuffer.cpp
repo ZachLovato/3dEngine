@@ -26,6 +26,9 @@ namespace wrap
 		m_texture = g_resources.Get<Texture>(textureName);
 		m_texture->Bind();
 
+		m_width = m_texture->m_width;
+		m_height = m_texture->m_height;
+
 		return CreateFramebuffer();
 	}
 

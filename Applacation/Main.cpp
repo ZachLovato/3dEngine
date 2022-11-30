@@ -3,6 +3,8 @@
 #include <Renderer/Program.h>
 #include <Renderer/Material.h>
 
+#define POST_PROCESS 
+
 int main(int argc, char** argv)
 {
 	LOG("Application Started...");
@@ -21,14 +23,16 @@ int main(int argc, char** argv)
 
 	// create framebuffer texture 
 	auto texture = std::make_shared<wrap::Texture>();
-	texture->CreateTexture(512, 512);
+	//by reducing the texture size the image will become pixelated (512 was default prior, 64 for pixel)
+	// change back gltexParamater to Gl_Liner in texture.cpp
+	texture->CreateTexture(256, 256);
 	wrap::g_resources.Add<wrap::Texture>("fb_texture", texture);
 
 	// create framebuffer
 	auto framebuffer = wrap::g_resources.Get<wrap::Framebuffer>("framebuffer", "fb_texture");
 	framebuffer->Unbind();
 
-	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/rtt.scn");
+	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/PostProcess.scn");
 
 
 	glm::vec3 rot(0,0,0);
@@ -84,6 +88,13 @@ int main(int argc, char** argv)
 			program->SetUniform("ri", ri);
 		}
 
+		auto waveProgram = wrap::g_resources.Get<wrap::Program>("shaders/postprocessing/postWave.prog");
+		if (program)
+		{
+			program->Use();
+			program->SetUniform("offset", wrap::g_time.time);
+		}
+
 		ImGui::Begin("Transform");
 		ImGui::SliderFloat3("Rotation", &rot[0], -360.0f, 360.0f);
 		//ImGui::DragFloat3("Rotation", &rot[0]);
@@ -102,9 +113,49 @@ int main(int argc, char** argv)
 			}
 		}
 
-		// render pass 1 render to framebuffer
-		glViewport(0, 0, 512, 512);
+#ifdef POST_PROCESS 
+		// don't draw post process actor when rendering to the framebuffer 
+		{
+			auto actor = scene->GetActorFromName("PostProcess");
+			if (actor)
+			{
+				actor->SetActive(false);
+			}
+		}
+		// render pass 1 (render scene to framebuffer) 
+		wrap::g_renderer.SetViewport(0, 0, framebuffer -> GetSize().x, framebuffer->GetSize().y);
 		framebuffer->Bind();
+		wrap::g_renderer.BeginFrame();
+		scene->PreRender(wrap::g_renderer);
+		scene->Render(wrap::g_renderer);
+		framebuffer->Unbind();
+
+		// render pass 2 (render to screen) 
+		wrap::g_renderer.RestoreViewport();
+		wrap::g_renderer.BeginFrame();
+		scene->PreRender(wrap::g_renderer);
+
+		// draw only the post process actor to the screen 
+		{
+			auto actor = scene->GetActorFromName("PostProcess");
+			if (actor)
+			{
+				actor->SetActive(true);
+				actor->Draw(wrap::g_renderer);
+			}
+		}
+#else 
+		neu::g_renderer.BeginFrame();
+		scene->PreRender(neu::g_renderer);
+		scene->Render(neu::g_renderer);
+#endif // POST_PROCESS 
+
+		/*
+		// render pass 1 render to framebuffer
+		//glViewport(0, 0, 512, 512);
+		wrap::g_renderer.SetViewport(0, 0, framebuffer->GetSize().x, framebuffer->GetSize().y);
+		framebuffer->Bind();
+
 		wrap::g_renderer.BeginFrame();
 		scene->PreRender(wrap::g_renderer);
 		scene->Render(wrap::g_renderer);
@@ -119,10 +170,11 @@ int main(int argc, char** argv)
 		}
 
 		// render pass 2. render to screen
-		glViewport(0, 0, 800, 600);
+		wrap::g_renderer.RestoreViewport();
 		wrap::g_renderer.BeginFrame();
 		scene->PreRender(wrap::g_renderer);
 		scene->Render(wrap::g_renderer);
+		*/
 
 		wrap::g_gui.Draw();
 

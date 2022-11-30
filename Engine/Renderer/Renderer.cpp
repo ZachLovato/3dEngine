@@ -15,8 +15,6 @@ namespace wrap
 		SDL_Init(SDL_INIT_VIDEO);
 		IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
 		TTF_Init();
-
-
 	}
 
 	void Renderer::Shutdown()
@@ -27,14 +25,15 @@ namespace wrap
 		IMG_Quit();
 	}
 
-	void Renderer::CreateWindow(const char* name, int width, int height, bool fullscreen)
+	void Renderer::CreateWindow(const std::string& name, int width, int height, bool fullscreen)
 	{
-		m_width = width;
-		m_height = height;
+		this->width = width;
+		this->height = height;
+		this->fullscreen = fullscreen;
 
 		int flags = (fullscreen) ? SDL_WINDOW_FULLSCREEN : (SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
-		m_window = SDL_CreateWindow(name, 100, 100, width, height, SDL_WINDOW_OPENGL | flags);
+		m_window = SDL_CreateWindow(name.c_str(), 100, 100, width, height, SDL_WINDOW_OPENGL | flags);
 
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
@@ -61,6 +60,17 @@ namespace wrap
 	void Renderer::EndFrame()
 	{
 		SDL_GL_SwapWindow(m_window);
+	}
+
+	void Renderer::SetViewport(int x, int y, int width, int height)
+	{
+		glViewport(x, y, width, height);
+	}
+
+	void Renderer::RestoreViewport()
+	{
+		glViewport(0, 0, width, height);
+		//glViewport(<x and y are 0 and use the class members width and height>);
 	}
 
 	void Renderer::DrawLine(float x1, float y1, float x2, float y2)

@@ -31,6 +31,9 @@
     <Filter Include="Resource Files\Shaders\UnLit">
       <UniqueIdentifier>{7817ae2c-7fac-43ad-b35b-1cc4e6b095e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Shaders\postprocess">
+      <UniqueIdentifier>{ed1a8b6f-7145-404b-b18d-28096ed79c7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -199,6 +202,66 @@
     </None>
     <None Include="..\Build\Assets\Materials\rtt.mtrl">
       <Filter>Resource Files\Mats</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postprocess.frag">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postprocess.prog">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postprocess.vert">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Materials\postprocess.mtrl">
+      <Filter>Resource Files\Mats</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\PostProcess.scn">
+      <Filter>Resource Files\Scenes</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postBW.frag">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postBW.prog">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postBW.vert">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postInvert.frag">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postInvert.prog">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postInvert.vert">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postScanline.frag">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postScanline.prog">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postScanline.vert">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postWave.frag">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postWave.prog">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postWave.vert">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postNew.frag">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postNew.prog">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
+    </None>
+    <None Include="..\Build\Assets\Shaders\postprocessing\postNew.vert">
+      <Filter>Resource Files\Shaders\postprocess</Filter>
     </None>
   </ItemGroup>
 </Project>
