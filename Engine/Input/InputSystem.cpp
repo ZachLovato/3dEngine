@@ -11,10 +11,10 @@ namespace wrap
 	const uint32_t key_space = SDL_SCANCODE_SPACE;
 	const uint32_t key_escape = SDL_SCANCODE_ESCAPE;
 	const uint32_t key_enter = SDL_SCANCODE_RETURN;
-	const uint32_t key_up = SDL_SCANCODE_UP;
-	const uint32_t key_down = SDL_SCANCODE_DOWN;
-	const uint32_t key_left = SDL_SCANCODE_LEFT;
-	const uint32_t key_right = SDL_SCANCODE_RIGHT;
+	const uint32_t key_up = SDL_SCANCODE_E;
+	const uint32_t key_down = SDL_SCANCODE_Q;
+	const uint32_t key_left = SDL_SCANCODE_A;
+	const uint32_t key_right = SDL_SCANCODE_D;
 	const uint32_t key_w = SDL_SCANCODE_W;
 	const uint32_t key_s = SDL_SCANCODE_S;
 

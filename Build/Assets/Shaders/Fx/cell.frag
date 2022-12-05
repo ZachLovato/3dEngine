@@ -75,6 +75,8 @@ void main()
 	vec3 specular;
  
 	toon(position, normal, ambient, diffuse, specular);
+
+	//specular = vec3(.5);
  
 	vec2 ttexcoord = (texcoord * material.uv_tiling) + material.uv_offset;
  

@@ -263,5 +263,8 @@
     <None Include="..\Build\Assets\Shaders\postprocessing\postNew.vert">
       <Filter>Resource Files\Shaders\postprocess</Filter>
     </None>
+    <None Include="..\Build\Assets\Materials\cell.mtrl">
+      <Filter>Resource Files\Mats</Filter>
+    </None>
   </ItemGroup>
 </Project>

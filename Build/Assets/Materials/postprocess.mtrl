@@ -1,5 +1,5 @@
 {
-  "program": "shaders/postprocessing/postNew.prog",
+  "program": "shaders/postprocessing/postWave.prog",
   "textures": [ "fb_texture" ],
   "color": [
     1,

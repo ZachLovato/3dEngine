@@ -10,33 +10,114 @@
           "type": "ModelComponent",
           "model_name": "Models/cube.obj",
           "material_name": "Materials/skybox.mtrl",
-          "depth_test": true
+          "depth_test": false
         }
       ]
     },
     {
       "type": "Actor",
-      "name": "PostProcess",
+      "name": "rtt",
+      "active": true,
       "transform": {
         "position": [
-          3,
-          2,
+          0,
+          0,
           0
         ],
         "scale": [
           1,
           1,
           1
+        ],
+        "rotation": [
+          0,
+          0,
+          0
         ]
       },
       "components": [
         {
           "type": "ModelComponent",
           "model_name": "Models/cube.obj",
+          "material_name": "Materials/box.mtrl"
+        }
+      ]
+    },
+    {
+      "type": "Actor",
+      "name": "PostProcess",
+      "active": false,
+      "transform": {
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/quad.obj",
           "material_name": "Materials/postprocess.mtrl"
         }
       ]
     },
+
+    {
+      "type": "Actor",
+      "name": "house",
+      "active": false,
+      "transform": {
+        "position": [
+          0,
+          0,
+          8
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          45,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/ogre.obj",
+          "material_name": "Materials/cell.mtrl"
+        }
+      ]
+    },
+
+    {
+      "type": "Actor",
+      "name": "wolf",
+      "active": false,
+      "transform": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "rotation": [
+          0,
+          45,
+          0
+        ]
+      },
+      "components": [
+        {
+          "type": "ModelComponent",
+          "model_name": "Models/ogre.obj",
+          "material_name": "Materials/cell.mtrl"
+        }
+      ]
+    },
+
     {
       "type": "Actor",
       "name": "Light1",
@@ -74,7 +155,7 @@
         "position": [
           0,
           0,
-          4
+          10
         ],
         "rotation": [
           0,

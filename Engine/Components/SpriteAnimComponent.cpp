@@ -42,7 +42,8 @@ namespace wrap
     Rect& SpriteAnimComponent::GetSource()
     {
         // calculate source rect
-        glm::vec2 cellSize = m_sequence->texture->GetSize() / glm::vec2{ m_sequence->num_columns, m_sequence->num_rows };
+        // rlm <- changed to ivec2
+        glm::vec2 cellSize = m_sequence->texture->GetSize() / glm::ivec2{ m_sequence->num_columns, m_sequence->num_rows };
 
         int column = (frame - 1) % m_sequence->num_columns;
         int row = (frame - 1) / m_sequence->num_columns;

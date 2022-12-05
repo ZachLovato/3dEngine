@@ -33,6 +33,7 @@ int main(int argc, char** argv)
 	framebuffer->Unbind();
 
 	auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/PostProcess.scn");
+	//auto scene = wrap::g_resources.Get<wrap::Scene>("Scenes/rtt.scn");
 
 
 	glm::vec3 rot(0,0,0);
@@ -43,7 +44,6 @@ int main(int argc, char** argv)
 	{
 		wrap::Engine::Instance().Update();
 		wrap::g_gui.BeginFrame(wrap::g_renderer);
-
 
 		if (wrap::g_inputSystem.GetKeyState(wrap::key_escape) == wrap::InputSystem::KeyState::Pressed) quit = true;
 

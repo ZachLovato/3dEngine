@@ -86,12 +86,17 @@ namespace wrap
         }
         FlipSurface(surface);
 
+        // rlm <- added log
+        LOG("%s : width = %d | height = %d | pixel format = %s", filename.c_str(), surface->w, surface->h, SDL_GetPixelFormatName(surface->format->format));
+
         // create texture 
         glGenTextures(1, &m_texture);
         glBindTexture(m_target, m_texture);
 
+        // rlm <- added internal format
+        GLenum internalFormat = GetInternalFormat(surface->format->format);
         GLenum format = (surface->format->BytesPerPixel == 4) ? GL_RGBA : GL_RGB;
-        glTexImage2D(m_target, 0, format, surface->w, surface->h, 0, format, GL_UNSIGNED_BYTE, surface->pixels);
+        glTexImage2D(m_target, 0, format, surface->w, surface->h, 0, internalFormat, GL_UNSIGNED_BYTE, surface->pixels);
 
         glTexParameteri(m_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR); //GL_LINEAR GL_LINEAR
         glTexParameteri(m_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -107,9 +112,9 @@ namespace wrap
         return true;
     }
 
-    glm::vec2 Texture::GetSize() const
+    glm::ivec2 Texture::GetSize() const
     {
-        return glm::vec2{ m_width, m_height };
+        return glm::ivec2{ m_width, m_height };
     }
 
     void Texture::FlipSurface(SDL_Surface* surface)
@@ -136,6 +141,30 @@ namespace wrap
         SDL_UnlockSurface(surface);
     }
 
+    GLenum Texture::GetInternalFormat(GLuint format)
+    {
+        GLenum internalFormat = SDL_PIXELFORMAT_UNKNOWN;
+        switch (format)
+        {
+        case SDL_PIXELFORMAT_RGB888:
+        case SDL_PIXELFORMAT_RGB24:
+            internalFormat = GL_RGB;
+            break;
+        case SDL_PIXELFORMAT_BGR888:
+        case SDL_PIXELFORMAT_BGR24:
+            internalFormat = GL_BGR;
+            break;
+        case SDL_PIXELFORMAT_RGBA8888:
+        case SDL_PIXELFORMAT_RGBA32:
+            internalFormat = GL_RGBA;
+            break;
+        case SDL_PIXELFORMAT_BGRA8888:
+        case SDL_PIXELFORMAT_BGRA32:
+            internalFormat = GL_BGRA;
+            break;
+        }
 
+        return internalFormat;
+    }
 
 }

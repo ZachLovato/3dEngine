@@ -30,7 +30,9 @@ namespace wrap
 		void setActive(GLuint unit) { glActiveTexture(unit); }
 		void Bind() { glBindTexture(m_target, m_texture); }
 
-		glm::vec2 GetSize() const;
+		GLenum GetInternalFormat(GLuint format);
+
+		glm::ivec2 GetSize() const;
 
 		friend class Renderer;
 		friend class Framebuffer;

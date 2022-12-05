@@ -90,7 +90,7 @@ void main()
   vec3 specular; 
   
   phong(lights[i], position, normal, diffuse, specular); 
- fcolor += (vec4(diffuse, 1) * texture(diffuseMap, texcoord)) + vec4(specular, 1); 
+  fcolor += (vec4(diffuse, 1) * texture(diffuseMap, texcoord)) + vec4(specular, 1); 
  } 
- 
+
 } 

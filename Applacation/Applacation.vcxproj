@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\Assets\Materials\Box.mtrl" />
+    <None Include="..\Build\Assets\Materials\cell.mtrl" />
     <None Include="..\Build\Assets\Materials\Cliff.mtrl" />
     <None Include="..\Build\Assets\Materials\multi.mtrl" />
     <None Include="..\Build\Assets\Materials\ogre.mtrl" />

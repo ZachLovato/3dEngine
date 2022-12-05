@@ -1,8 +1,7 @@
 {
   "program": "shaders/fx/cell.prog",
   "textures": [
-    "Textures/rocks.jpg",
-    "Textures/rocks_normal.jpg"
+    "Textures/lava.png"
   ],
   "uv_tiling": [ 1, 1 ],
   "uv_offset": [ 0, 0 ],

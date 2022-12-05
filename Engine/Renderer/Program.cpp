@@ -91,7 +91,8 @@ namespace wrap
     void Program::SetUniform(const std::string& name, int value)
     {
         GLint uniform = GetUniform(name);
-        if (uniform != -1) glUniform1f(uniform, value);
+        // rlm <- this is suppose to be an int, you have it taking in a float (it was glUniform1f)
+        if (uniform != -1) glUniform1i(uniform, value);
     }
 
     void Program::SetUniform(const std::string& name, float value)
@@ -103,7 +104,8 @@ namespace wrap
     void Program::SetUniform(const std::string& name, unsigned int value)
     {
         GLint uniform = GetUniform(name);
-        if (uniform != -1) glUniform1f(uniform, value);
+        // rlm <- this is suppose to be an int, you have it taking in a float (it was glUniform1f)
+        if (uniform != -1) glUniform1ui(uniform, value);
     }
 
     void Program::SetUniform(const std::string& name, bool value)

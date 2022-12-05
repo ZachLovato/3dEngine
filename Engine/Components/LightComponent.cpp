@@ -40,12 +40,13 @@ namespace wrap
 
 	void LightComponent::SetProgram(std::shared_ptr<Program>& programs, int index)
 	{
-		// transform the light position by the view, puts light in model view space 
+		// transform the light position by the view, puts light in model view space
 		glm::vec4 position = g_renderer.GetView() * glm::vec4(m_owner->m_transform.position, 1);
+		//Set the direction from the transform forward at the top of the method (after getting the position) & returns a vector pointing in the forward direction of the light
 		glm::vec3 direction = m_owner->m_transform.getForward();
 
 		// create array light name from index (lights[0], ...) 
-		std::string lightName = "lights[" + std::to_string(index) + ']';
+		std::string lightName = "lights[" + std::to_string(index) + "]";
 
 		programs->Use();
 		programs->SetUniform(lightName + ".type", (int)type);
@@ -55,8 +56,6 @@ namespace wrap
 		programs->SetUniform(lightName + ".direction", direction);
 		programs->SetUniform(lightName + ".cutoff", direction);
 		programs->SetUniform(lightName + ".exponent", exponent);
-
-
 	}
 
 }
